@@ -15,13 +15,6 @@ import Avatar from '@mui/joy/Avatar';
 import Card from '@mui/joy/Card';
 import { AddBox } from '@mui/icons-material';
 
-
-
-
-
-
-
-
 export default function ClinicPage() {
   const [variant, setVariant] = React.useState('solid');
   return (
