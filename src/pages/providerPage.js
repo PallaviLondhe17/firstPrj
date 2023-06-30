@@ -19,6 +19,7 @@ import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import { Paragraph } from 'theme-ui';
 import { IconButton } from '@mui/joy';
 import InputLabel from '@mui/material/InputLabel';
+import {useNavigate} from "react-router-dom" 
 
 
 
@@ -49,6 +50,8 @@ const Arrowicon = styled(Sheet)(({ theme }) => ({
 }));
 export default function ProviderPage() {
   const [variant, setVariant] = React.useState('solid');
+  let navigate = useNavigate() 
+
   return (
     <>  
     <Sheet variant="outlined" color="neutral" sx={{ p: 4 }} component="div">    
@@ -69,7 +72,8 @@ export default function ProviderPage() {
         }}
       />
       <Box sx={{ display: 'flex', gap: 25, flexWrap: 'wrap', alignItems: 'center' }}>
-      <IconButton size="sm" color="neutral" variant="soft">
+      <IconButton size="sm" color="neutral" variant="soft" 
+      onClick ={()=>{ navigate("/clinicpage")}}>
         <ArrowLeftOutlinedIcon/>
       </IconButton>
       <Pre>
@@ -79,7 +83,9 @@ export default function ProviderPage() {
         </Pre>
       </Box>
        
-    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}>
+    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}
+    onClick ={()=>{ navigate("/daywiseCalender")}}
+    >
       <Item sx={{my: 1,mx: 1,p: 2,}}>
       <Stack  spacing={2} direction="row" alignItems="center">
         <Stack><Avatar variant="solid" sx={{borderColor: 'background.body' }}/></Stack>
@@ -87,7 +93,9 @@ export default function ProviderPage() {
       </Stack>
       </Item> 
     </Box>
-    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}>
+    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}
+    onClick ={()=>{ navigate("/daywiseCalender")}}
+    >
       <Item sx={{my: 1,mx: 1,p: 2,}}>
       <Stack  spacing={2} direction="row" alignItems="center">
         <Stack><Avatar variant="solid" sx={{borderColor: 'background.body' }}/></Stack>
@@ -95,7 +103,9 @@ export default function ProviderPage() {
       </Stack>
       </Item> 
     </Box>
-    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}>
+    <Box component="li" sx={{ flexGrow: 2, overflow: 'hidden', px: 1 }}
+    onClick ={()=>{ navigate("/daywiseCalender")}}
+    >
       <Item sx={{my: 1,mx: 1,p: 2,}}>
       <Stack  spacing={2} direction="row" alignItems="center">
         <Stack><Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnRRQ82JeTe00BupmYV_0wZnGCfzCcCgJN_527tfZQEXt1BvLlDdL6b6iKrxVJIU7NtuE&usqp=CAUg"/></Stack>
@@ -109,6 +119,7 @@ export default function ProviderPage() {
           color="primary"
           aria-label="Explore Bahamas Islands"
           sx={{ ml: 'auto', fontWeight: 600 }}
+          onClick ={()=>{ navigate("/clinicpage")}}
         >
           Cancel
         </Button>
