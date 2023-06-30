@@ -23,10 +23,7 @@ import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
-
-
-
-
+import {Pets} from '@mui/icons-material';
 
 const Item = styled(Sheet)(({ theme }) => ({
     ...theme.typography.body2,
@@ -36,8 +33,7 @@ const Item = styled(Sheet)(({ theme }) => ({
     color: theme.vars.palette.text.primary,
     maxWidth: 250,
   }));
-  
-  
+   
 export default function PetPage() {
     const current = new Date();
   let monthvar=current.getMonth();
@@ -63,34 +59,18 @@ export default function PetPage() {
         </Stack>
      </Stack>
  </Box>
-     <Box sx={{mt:3,display: 'flex',ml:50,flexWrap: 'wrap'}}>
-     <Box component='label'  sx={{mr:10,mt:1}}>
-     <MaterialTypography sx={{fontSize:15}}>Type your Email/Phone number </MaterialTypography>
+     <Box component='label' sx={{mt:3,display: 'flex',ml:80,flexWrap: 'wrap'}}>
+     <MaterialTypography variant='h6'>Select Your Pet</MaterialTypography>
      </Box>
-     <Box>
-     <TextField required size='small' type="search" id="search" placeholder='Search your Information' sx={{width: 300 }} />
-     <MaterialButton
-          variant="contained"
-          size="small"
-          sx={{height:40,fontWeight: 300 }}
-      >Search</MaterialButton>
+     <Box sx={{display:'flex',justifyContent:'center',ml:75,mt:5,mb:5,border:'1px solid grey',width:200,height:100}}>
+      <Item sx={{mt:3}}><Pets/></Item><Item sx={{mt:3}}>Max</Item>
      </Box>
-     </Box>
-     <Box sx={{ mb:10,mt:5,ml: 55,display: 'flex', gap: 3, flexWrap: 'wrap',height:50}}>
-     <MaterialButton
-          size="small"
-          color="success"
-          variant="contained"
-          sx={{fontWeight: 300 }}
-        >
-          WALK-IN APPOINTMENT BOOKING
-        </MaterialButton>   
+         <Box sx={{ mb:10,mt:5,ml: 80,display: 'flex', gap: 3, flexWrap: 'wrap',height:40}}>
         <MaterialButton
           variant="contained"
           size="small"
-          sx={{fontWeight: 300 }}
         >
-          VIRTUAL APPOINTMENT BOOKING
+         Add new pet
         </MaterialButton> 
      </Box>  
     </>

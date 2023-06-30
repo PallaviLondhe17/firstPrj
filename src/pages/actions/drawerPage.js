@@ -14,6 +14,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Global } from '@emotion/react';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Skeleton from '@mui/material/Skeleton';
+import Container from '@mui/material/Container';
+
 
 const drawerBleeding = 20;
 
@@ -23,6 +25,7 @@ const [open, setOpen] = React.useState(false);
 const toggleDrawer = (newOpen) => () => {
 setOpen(newOpen);
 };
+const container=""
 return(
     <>
     <CssBaseline />
