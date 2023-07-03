@@ -24,6 +24,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
 import {Pets} from '@mui/icons-material';
+import {useNavigate} from "react-router-dom" 
 
 const Item = styled(Sheet)(({ theme }) => ({
     ...theme.typography.body2,
@@ -42,11 +43,12 @@ export default function PetPage() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
-
+  let navigate = useNavigate() 
   return (
     <>
 <Box sx={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center'}}>
-      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft">
+      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft"
+       onClick ={()=>{ navigate("/slotSelection")}}>
         <ArrowLeftOutlinedIcon/>
       </IconButton> 
       <Stack direction="row" sx={{width:900}}>
@@ -62,13 +64,16 @@ export default function PetPage() {
      <Box component='label' sx={{mt:3,display: 'flex',ml:80,flexWrap: 'wrap'}}>
      <MaterialTypography variant='h6'>Select Your Pet</MaterialTypography>
      </Box>
-     <Box sx={{display:'flex',justifyContent:'center',ml:75,mt:5,mb:5,border:'1px solid grey',width:200,height:100}}>
+     <Box 
+     sx={{display:'flex',justifyContent:'center',ml:75,mt:5,mb:5,border:'1px solid grey',width:200,height:100}}
+     onClick ={()=>{ navigate("/confirmPage")}}>
       <Item sx={{mt:3}}><Pets/></Item><Item sx={{mt:3}}>Max</Item>
      </Box>
          <Box sx={{ mb:10,mt:5,ml: 80,display: 'flex', gap: 3, flexWrap: 'wrap',height:40}}>
         <MaterialButton
           variant="contained"
           size="small"
+          
         >
          Add new pet
         </MaterialButton> 

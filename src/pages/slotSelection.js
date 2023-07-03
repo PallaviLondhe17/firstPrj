@@ -23,7 +23,7 @@ import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
-
+import {useNavigate} from "react-router-dom" 
 
 
 
@@ -46,11 +46,12 @@ export default function SlotSelection() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
-
+  let navigate = useNavigate() 
   return (
     <>
 <Box sx={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center'}}>
-      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft">
+      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft"
+      onClick ={()=>{ navigate("/slot")}}>
         <ArrowLeftOutlinedIcon/>
       </IconButton> 
       <Stack direction="row" sx={{width:900}}>
@@ -68,27 +69,31 @@ export default function SlotSelection() {
      <MaterialTypography sx={{fontSize:15}}>Type your Email/Phone number </MaterialTypography>
      </Box>
      <Box>
-     <TextField required size='small' type="search" id="search" placeholder='Search your Information' sx={{width: 300 }} />
+     <TextField required size='small' value='pallavi.londhe@sygina.com' type="search" id="search" placeholder='Search your Information' sx={{width: 300 }} />
      <MaterialButton
           variant="contained"
           size="small"
           sx={{height:40,fontWeight: 300 }}
+          onClick ={()=>{ navigate("/petPage")}}
       >Search</MaterialButton>
      </Box>
      </Box>
      <Box sx={{ mb:10,mt:5,ml: 55,display: 'flex', gap: 3, flexWrap: 'wrap',height:50}}>
      <MaterialButton
+     
           size="small"
           color="success"
           variant="contained"
-          sx={{fontWeight: 300 }}
+          sx={{fontWeight: 300,display:'none' }}
+          onClick ={()=>{ navigate("/slotSelection")}}
         >
           WALK-IN APPOINTMENT BOOKING
         </MaterialButton>   
         <MaterialButton
           variant="contained"
           size="small"
-          sx={{fontWeight: 300 }}
+          sx={{fontWeight: 300,display:'none' }}
+          onClick ={()=>{ navigate("/slotSelection")}}
         >
           VIRTUAL APPOINTMENT BOOKING
         </MaterialButton> 

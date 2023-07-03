@@ -28,111 +28,87 @@ setOpen(newOpen);
 const container=""
 return(
     <>
-    <CssBaseline />
-      <Global
-        styles={{
-          '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(50% - ${drawerBleeding}px)`,
-            overflow: 'visible',
-          },
-        }}
-    >
     <Box component="button"
     variant="outlned"
     sx={{ display:'flex',justifyContent:'center',bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >9:00 AM
     </Box>
-    <SwipeableDrawer
-        container={container}
-        anchor="bottom"
-        open={open}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      />
-    <Skeleton variant="rounded" width={200}/>
-    </Global>
-
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >9:15 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >9:30 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >9:45 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >10:00 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >10:15 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >10:30 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >10:45 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >11:00 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{  display:'flex',justifyContent:'center',bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >11:15 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{  display:'flex',justifyContent:'center',bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >11:30 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >11:45 AM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >12:00 PM
     </Box>
     <Box component="button"
     variant="outlned"
-    sx={{ bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
+    sx={{ display:'flex',justifyContent:'center', bgcolor: 'background.paper',color: 'text.primary', fontSize: 15,pt: 5,ml:65,mt:1, width: 400,borderColor:'primary.main',borderRadius: '5px'}}
     onClick={toggleDrawer(true)}
     >12:15 PM
     </Box>

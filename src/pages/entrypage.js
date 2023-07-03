@@ -16,16 +16,12 @@ import MaterialTypography, {typographyClasses as muiTypographyClasses,} from '@m
 import JoyTypography, {typographyClasses as joyTyographyClasses,} from '@mui/joy/Typography';
 import Stack from '@mui/material/Stack';
 import ClinicPage from './clinicpage';
-
-
-
-
-
+import {useNavigate} from "react-router-dom" 
 
 export default function EntryPage(props) {
   const [variant, setVariant] = React.useState('solid');
   const [show, setShow] = useState(false);
-  
+  let navigate = useNavigate() 
   return (
     <>
     <Sheet id='firstPage' variant="outlined" color="neutral" sx={{ p: 4 }} component="div">
@@ -55,7 +51,7 @@ export default function EntryPage(props) {
         </JoyTypography>
         </CardContent>
   
-        <Button sx={{ m: 'auto' }} size="md"  variant={variant} color="primary">
+        <Button sx={{ m: 'auto' }} size="md" onClick ={()=>{ navigate("/clinicPage")}}  variant={variant} color="primary">
           Book Online Appointment
         </Button>
      

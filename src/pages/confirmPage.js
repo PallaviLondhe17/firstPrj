@@ -25,7 +25,7 @@ import SwipeableDrawer from './actions/drawerPage';
 import { grey } from '@mui/material/colors';
 import { TaskSharp } from '@mui/icons-material';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
-
+import {useNavigate} from "react-router-dom" 
 
 
 
@@ -47,11 +47,12 @@ export default function ConfirmPage() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
-
+  let navigate = useNavigate() 
   return (
     <>
 <Box sx={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center'}}>
-      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft">
+      <IconButton size="sm" sx={{ml:40,mt:5}} color="neutral" variant="soft"
+      onClick ={()=>{ navigate("/petPage")}}>
         <ArrowLeftOutlinedIcon/>
       </IconButton> 
       <Box  
@@ -68,8 +69,12 @@ export default function ConfirmPage() {
     <Box sx={{mt:1,ml:10,mb:1,display:'flex'}} 
     gap={20}
     >
-     <MaterialButton size='small' color='error' variant='contained'>Cancel</MaterialButton>
-     <MaterialButton size='small' color='success' variant='contained'>confirm</MaterialButton>
+     <MaterialButton size='small' color='error' variant='contained'
+     onClick ={()=>{ navigate("/petPage")}}
+     >Cancel</MaterialButton>
+     <MaterialButton size='small' color='success' variant='contained'
+     onClick ={()=>{ navigate("/bookingDetails")}}>
+      confirm</MaterialButton>
      </Box>
      </Box>  
     </>

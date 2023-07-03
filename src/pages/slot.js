@@ -22,7 +22,7 @@ import { styled } from '@mui/joy/styles';
 import Typography from '@mui/material/Typography';
 import CssBaseline from '@mui/material/CssBaseline';
 import SwipeableDrawer from './actions/drawerPage';
-
+import {useNavigate} from "react-router-dom" 
 
 
 const Item = styled(Sheet)(({ theme }) => ({
@@ -43,11 +43,12 @@ export default function Slot() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
-
+  let navigate = useNavigate() 
   return (
     <>
 <Box sx={{ display: 'flex', gap: 30, flexWrap: 'wrap', alignItems: 'center' }}>
-      <IconButton size="sm" sx={{ml:50,mt:5}} color="neutral" variant="soft">
+      <IconButton size="sm" sx={{ml:50,mt:5}} color="neutral" variant="soft" 
+      onClick ={()=>{ navigate("/daywiseCalender")}}>
         <ArrowLeftOutlinedIcon/>
       </IconButton> 
       <Stack sx={{mt:5,bgcolor:'#0277BD',width:80}}> 
@@ -71,6 +72,7 @@ export default function Slot() {
           color="success"
           aria-label="Explore Bahamas Islands"
           sx={{fontWeight: 300 }}
+          onClick ={()=>{ navigate("/slotSelection")}}
         >
           WALK-IN APPOINTMENT BOOKING
         </Button>   
@@ -80,6 +82,7 @@ export default function Slot() {
           color="primary"
           aria-label="Explore Bahamas Islands"
           sx={{fontWeight: 300 }}
+          onClick ={()=>{ navigate("/slotSelection")}}
         >
           VIRTUAL APPOINTMENT BOOKING
         </Button> 

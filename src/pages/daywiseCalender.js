@@ -20,6 +20,8 @@ import { IconButton } from '@mui/joy';
 import InputLabel from '@mui/material/InputLabel';
 import Paper from '@mui/material/Paper';
 import { MonthCalendar, renderDateViewCalendar } from '@mui/x-date-pickers';
+import {useNavigate} from "react-router-dom" 
+
 
 
 const Item1 = styled(Sheet)(({ theme }) => ({
@@ -46,35 +48,36 @@ export default function DaywiseCalender() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
+  let navigate = useNavigate() 
   return (
     <>  
-    <Sheet color="neutral" sx={{ p: 4 }} >    
-    <Box sx={{ml:70,justifyContent: 'center'}}>
+    <Sheet color="neutral" sx={{ p: 4}} >    
+    <Box sx={{justifyContent: 'center'}}>
         <Typography component="div">
-           Select a Day Of Akshay Kumar
+           Select a Day Of <Box sx={{textDecoration:'underline'}}> Akshay Kumar</Box>
         </Typography>
     </Box>
-    <stack direction="row" spacing={2}>
+    <Box
+    sx={{display:'flex',flexWrap:'wrap',mt:5,ml:2}}
+    >
     <Box 
       sx={{
         display: 'fixed',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          ml: 20,
+          ml: 5,
           width: 100,
           height: 130,
           backgroundColor: '#A8A8A8',
           borderRadius: 'sm',
         },
       }}
+      onClick ={()=>{ navigate("/slot")}}
     >
     <Paper sx={{gap:2}} elevation={3}>
      <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
      <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${d.getDate()}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${mon.getMonth()}`}</Item1> 
-
      </Paper>
      </Box>
      <Box 
@@ -82,7 +85,7 @@ export default function DaywiseCalender() {
         display: 'fixed',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          ml: 20,
+          ml: 5,
           width: 100,
           height: 130,
           backgroundColor: '#A8A8A8',
@@ -94,9 +97,6 @@ export default function DaywiseCalender() {
      <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
      <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${d.getDate()}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${mon.getMonth()}`}</Item1> 
-
      </Paper>
      </Box>
      <Box  
@@ -104,30 +104,149 @@ export default function DaywiseCalender() {
         display: 'fixed',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          ml: 20,
+          ml: 5,
           width: 100,
           height: 130,
           backgroundColor: '#A8A8A8',
           borderRadius: 'sm',
         },
       }}
+      onClick ={()=>{ navigate("/slot")}}
     >
      <Paper sx={{gap:2}} elevation={3}>
      <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
      <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${d.getDate()}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${mon.getMonth()}`}</Item1> 
-
      </Paper>
       </Box>
-      </stack>
-<Button
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'fixed',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 5,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      </Box>
+        <Button
           variant="solid"
           size="sm"
           color="primary"
           aria-label="Explore Bahamas Islands"
-          sx={{ ml: 80, fontWeight: 600 }}
+          sx={{mt:20, fontWeight: 600 }}
+          onClick ={()=>{ navigate("/providerPage")}}
         >
           Cancel
         </Button>    
