@@ -1,7 +1,5 @@
 import './App.css';
 import {Routes , Route } from "react-router-dom"; 
-import MultipleSelectPlaceholder from './staffList/staffList';
-import SimpleContainer from './setting/setting';
 import EntryPage from './pages/entrypage';
 import ClinicPage from './pages/clinicpage';
 import ProviderPage from './pages/providerPage';
@@ -16,6 +14,7 @@ import ConfirmPage from './pages/confirmPage';
 import PetPage from './pages/petPage';
 import {Link} from "react-router-dom"; 
 import BookingDetails from './pages/bookingDetails';
+
 
 
 
