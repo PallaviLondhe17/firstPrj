@@ -70,7 +70,7 @@ export default function ConfirmPage() {
     gap={20}
     >
      <MaterialButton size='small' color='error' variant='contained'
-     onClick ={()=>{ navigate("/petPage")}}
+     onClick ={()=>{ navigate("/")}}
      >Cancel</MaterialButton>
      <MaterialButton size='small' color='success' variant='contained'
      onClick ={()=>{ navigate("/bookingDetails")}}>

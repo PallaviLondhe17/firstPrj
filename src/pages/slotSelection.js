@@ -24,6 +24,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
 import {useNavigate} from "react-router-dom" 
+import Input from '@mui/joy/Input';
+import NativeSelect from '@mui/material/NativeSelect';
+import Modal from '@mui/joy/Modal';
+import ModalClose from '@mui/joy/ModalClose';
+import ModalDialog from '@mui/joy/ModalDialog';
+import Radio from '@mui/joy/Radio';
+import RadioGroup from '@mui/joy/RadioGroup';
 
 
 
@@ -46,6 +53,8 @@ export default function SlotSelection() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
+  const [dialog, setDialog] = React.useState(undefined);
+
   let navigate = useNavigate() 
   return (
     <>
@@ -74,11 +83,26 @@ export default function SlotSelection() {
           variant="contained"
           size="small"
           sx={{height:40,fontWeight: 300 }}
-          onClick ={()=>{ navigate("/petPage")}}
+          
       >Search</MaterialButton>
      </Box>
      </Box>
+     <Box onClick ={()=>{ navigate("/petPage")}}
+     sx={{ml:60,mt:5,width:400,border: '1px solid grey',textAlign:'left'}}>
+     <MaterialTypography sx={{ml:3,mt:3,mb:3}}> Name : Pallavi Londhe<br/>Address : Mumbai,near rajiv bridge
+     </MaterialTypography>
+     </Box>
      <Box sx={{ mb:10,mt:5,ml: 55,display: 'flex', gap: 3, flexWrap: 'wrap',height:50}}>
+     <MaterialButton
+     disabled
+     size="small"
+     color="success"
+     variant="contained"
+     sx={{fontWeight: 300 }}
+     onClick={() => {
+      setDialog('plain');
+    }}
+   >register</MaterialButton>
      <MaterialButton
      
           size="small"
@@ -98,6 +122,187 @@ export default function SlotSelection() {
           VIRTUAL APPOINTMENT BOOKING
         </MaterialButton> 
      </Box>  
+
+
+     <Modal open={!!dialog} onClose={() => setDialog(undefined)}>
+        <ModalDialog
+          aria-labelledby="variant-modal-title"
+          aria-describedby="variant-modal-description"
+          variant={dialog}
+        >
+          <ModalClose />
+          <JoyTypography level='h2' id="variant-modal-title" component="h2" level="inherit">
+            Add Quick Client Patient
+          </JoyTypography>
+         <divider/>
+        <Box sx={{width:570,mt:3}}>
+          <JoyTypography level='h2' id="variant-modal-description" textColor="inherit">
+            Client Details
+          </JoyTypography>
+          <Box sx={{display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             inputSizeSmall:'small',
+             pr:11
+            }} placeholder="First Name" />
+            <Input sx=
+            {{
+               "--Input-paddingInline": "10px",
+               "--Input-radius": "3px",
+               "--Input-minHeight": "37px",
+               fontSize: 'var(--joy-fontSize-sm)',
+               pr:11
+            }} placeholder="Last Name" />
+          </Box>
+          <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Input sx=
+            {{
+               "--Input-paddingInline": "10px",
+               "--Input-radius": "3px",
+               "--Input-minHeight": "37px",
+               fontSize: 'var(--joy-fontSize-sm)',
+               pr:11
+            }}
+            placeholder="Address1" />
+            <NativeSelect
+            sx={{width:270}}
+            defaultValue={30}
+            type='search'
+            inputProps={{
+            name: 'country',
+            id: 'uncontrolled-native',
+            }}
+            >
+            <option value={10}>United State</option>
+            <option value={20}>India</option>
+            <option value={30}>Canada</option>
+            </NativeSelect>
+            </Box>
+            <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             pr:11
+            }}
+             placeholder="City" />
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             pr:11
+            }}
+             placeholder="Postal Code" />
+             </Box>
+             <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             pr:11
+            }}
+             placeholder="Phone Number" />
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             pr:11
+            }}
+             placeholder="Email Address" />
+          </Box>
+          <JoyTypography level='h2' id="variant-modal-description" textColor="inherit">
+            Patient Details
+          </JoyTypography>
+          <Box sx={{mt:2, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             width:200
+            }}
+             placeholder="Patient Name" />
+            <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             width:70,
+
+            }}
+             placeholder="0.00" />
+            <RadioGroup orientation="horizontal"
+              sx={{ gap: 1, mt: 1 }} 
+              defaultValue="soft" name="radio-buttons-group">
+            <Radio value="KG" label="KG" variant="soft" />
+            <Radio value="LB" label="LB" variant="soft" />
+            <Radio value="OZ" label="OZ" variant="soft" />
+            <Radio value="G" label="G" variant="soft" />
+            </RadioGroup>
+             </Box>
+             <Box sx={{mt:2, display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
+             <NativeSelect
+             sx={{width:270}}
+            defaultValue={30}
+            inputProps={{
+            name: 'Species',
+            id: 'uncontrolled-native',
+            }}
+            >
+            <option value={10}>Canine(Dog)</option>
+            <option value={20}>Lizard</option>
+            <option value={30}>Tortoise</option>
+            </NativeSelect>
+            <NativeSelect
+            sx={{width:270}}
+            defaultValue={30}
+            inputProps={{
+            name: 'Breed',
+            id: 'uncontrolled-native',
+            }}
+            >
+            <option value={10}>Alligator</option>
+            <option value={20}>Alpine</option>
+            <option value={30}>American</option>
+            </NativeSelect>
+             </Box>
+             <Input sx=
+            {{ "--Input-paddingInline": "10px",
+             "--Input-radius": "3px",
+             "--Input-minHeight": "37px",
+             fontSize: 'var(--joy-fontSize-sm)',
+             width:200,
+             mt:2,pr:11
+            }}
+             placeholder="DOB" />
+      </Box>
+      <Box
+      sx={{gap:4,mt:5,ml:50,display:'flex'}}
+      >
+      <MaterialButton
+      sx={{width:50}}
+          variant="soft"
+          size="small" 
+        >
+         close
+        </MaterialButton> 
+      <MaterialButton
+      sx={{width:60, "--Input-radius": "1px"}}
+          variant="contained"
+          size="small" 
+        >
+         save
+        </MaterialButton> 
+      </Box>
+        </ModalDialog>
+      </Modal>
     </>
   )
 }
