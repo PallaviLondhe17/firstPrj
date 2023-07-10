@@ -12,6 +12,8 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import AspectRatio from '@mui/joy/AspectRatio';
 import CardCover from '@mui/joy/CardCover';
 import Avatar from '@mui/joy/Avatar';
+import ArrowBackIosNewSharp from '@mui/icons-material/ArrowBackIosNewSharp'
+import ArrowForwardIosSharp from '@mui/icons-material/ArrowForwardIosSharp'
 import Card from '@mui/joy/Card';
 import Stack from '@mui/system/Stack';
 import { styled } from '@mui/joy/styles';
@@ -49,6 +51,7 @@ export default function DaywiseCalender() {
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
   let navigate = useNavigate() 
+  
   return (
     <>  
     <Sheet color="neutral" sx={{ p: 4}} >    
@@ -58,14 +61,15 @@ export default function DaywiseCalender() {
         </Typography>
     </Box>
     <Box
-    sx={{display:'flex',flexWrap:'wrap',mt:5,ml:2}}
+    sx={{display:'flex',flexWrap:'wrap',mt:5,ml:30,width:900,alignItems:'center'}}
     >
+    <ArrowBackIosNewSharp />
     <Box 
       sx={{
         display: 'fixed',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          ml: 5,
+          ml: 1,
           width: 100,
           height: 130,
           backgroundColor: '#A8A8A8',
@@ -95,7 +99,7 @@ export default function DaywiseCalender() {
     >
      <Paper sx={{gap:2}} elevation={3}>
      <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()+1}`}</Item1> 
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
      </Paper>
      </Box>
@@ -179,9 +183,30 @@ export default function DaywiseCalender() {
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
      </Paper>
       </Box>
+      <ArrowForwardIosSharp sx={{ml:1}}/>
       <Box  
       sx={{
-        display: 'fixed',
+        display: 'none',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          ml: 4,
+          width: 100,
+          height: 130,
+          backgroundColor: '#A8A8A8',
+          borderRadius: 'sm',
+        },
+      }}
+      onClick ={()=>{ navigate("/slot")}}
+    >
+     <Paper sx={{gap:2}} elevation={3}>
+     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
+     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
+     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
+     </Paper>
+      </Box>
+      <Box  
+      sx={{
+        display: 'none',
         flexWrap: 'wrap',
         '& > :not(style)': {
           ml: 5,
@@ -201,7 +226,7 @@ export default function DaywiseCalender() {
       </Box>
       <Box  
       sx={{
-        display: 'fixed',
+        display: 'none',
         flexWrap: 'wrap',
         '& > :not(style)': {
           ml: 5,
@@ -219,26 +244,7 @@ export default function DaywiseCalender() {
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
      </Paper>
       </Box>
-      <Box  
-      sx={{
-        display: 'fixed',
-        flexWrap: 'wrap',
-        '& > :not(style)': {
-          ml: 5,
-          width: 100,
-          height: 130,
-          backgroundColor: '#A8A8A8',
-          borderRadius: 'sm',
-        },
-      }}
-      onClick ={()=>{ navigate("/slot")}}
-    >
-     <Paper sx={{gap:2}} elevation={3}>
-     <Item1 sx={{bgcolor:'#0277BD',color:'#fff',fontWeight: 'bold',}}>{`${current.toLocaleDateString(locale, { weekday: 'long' })}`}</Item1> 
-     <Item1 sx={{fontSize:27}}>{`${current.getDate()}`}</Item1> 
-     <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`}</Item1> 
-     </Paper>
-      </Box>
+     
       </Box>
         <Button
           variant="solid"
