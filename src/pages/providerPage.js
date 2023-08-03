@@ -1,28 +1,17 @@
 import * as React from 'react';
-import { useState } from 'react';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/joy/Typography';
-import CardHeader from '@mui/material/CardHeader';
-import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/joy/Box';
-import Divider from '@mui/material/Divider';
-import Button from '@mui/joy/Button';
+import Button from '@mui/material/Button';
 import Sheet from '@mui/joy/Sheet';
-import CardOverflow from '@mui/joy/CardOverflow';
-import AspectRatio from '@mui/joy/AspectRatio';
 import CardCover from '@mui/joy/CardCover';
 import Avatar from '@mui/joy/Avatar';
 import Card from '@mui/joy/Card';
 import Stack from '@mui/joy/Stack';
 import { styled } from '@mui/joy/styles';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import { Paragraph } from 'theme-ui';
 import { IconButton } from '@mui/joy';
 import InputLabel from '@mui/material/InputLabel';
 import {useNavigate} from "react-router-dom" 
-
-
-
 
 const Item = styled(Sheet)(({ theme }) => ({
   ...theme.typography.body2,
@@ -77,7 +66,7 @@ export default function ProviderPage() {
         <ArrowLeftOutlinedIcon/>
       </IconButton>
       <Pre>
-        <Typography component="div">
+        <Typography variant='h6'>
            Select Provider
         </Typography>
         </Pre>
@@ -114,10 +103,7 @@ export default function ProviderPage() {
       </Item> 
     </Box>
 <Button
-          variant="solid"
-          size="sm"
-          color="primary"
-          aria-label="Explore Bahamas Islands"
+          variant="contained"
           sx={{ ml: 'auto', fontWeight: 600 }}
           onClick ={()=>{ navigate("/clinicpage")}}
         >

@@ -1,27 +1,12 @@
 import * as React from 'react';
-import { useState } from 'react';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import {CardActionArea, CardActions, TextField } from '@mui/material';
-import Container from '@mui/material/Container';
 import Box from '@mui/joy/Box';
-import {ThemeProvider } from '@mui/system';
-import Grid from '@mui/material/Grid';
-import image from './istockphoto-1126645371-612x612.jpeg'
-import Divider from '@mui/material/Divider';
-import Button from '@mui/joy/Button';
 import Sheet from '@mui/joy/Sheet';
-import CardCover from '@mui/joy/CardCover';
-import MaterialTypography, {typographyClasses as muiTypographyClasses,} from '@mui/material/Typography';
-import JoyTypography, {typographyClasses as joyTyographyClasses,} from '@mui/joy/Typography';
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/joy';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import { styled } from '@mui/joy/styles';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
 import {useNavigate} from "react-router-dom" 
 import Input from '@mui/joy/Input';
@@ -69,13 +54,13 @@ export default function SlotSelection() {
           <Item sx={{bgcolor:'#0277BD',color:'#fff', fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`+` `+`${d.getFullYear()}`}</Item> 
         </Stack>
         <Stack sx={{mt:5,width:500,border: '1px solid grey'}}> 
-          <MaterialTypography sx={{ml:3,mt:3}}>Akshay Kumar <br/> Timing : 9:00 AM to 9:30 AM</MaterialTypography>
+          <Typography sx={{ml:3,mt:3}}>Akshay Kumar <br/> Timing : 9:00 AM to 9:30 AM</Typography>
         </Stack>
      </Stack>
  </Box>
      <Box sx={{mt:3,display: 'flex',ml:50,flexWrap: 'wrap'}}>
      <Box component='label'  sx={{mr:10,mt:1}}>
-     <MaterialTypography sx={{fontSize:15}}>Type your Email/Phone number </MaterialTypography>
+     <Typography sx={{fontSize:15}}>Type your Email/Phone number </Typography>
      </Box>
      <Box>
      <TextField required size='small' value='pallavi.londhe@sygina.com' type="search" id="search" placeholder='Search your Information' sx={{width: 300 }} />
@@ -89,8 +74,8 @@ export default function SlotSelection() {
      </Box>
      <Box onClick ={()=>{ navigate("/petPage")}}
      sx={{ml:60,mt:5,width:400,border: '1px solid grey',textAlign:'left'}}>
-     <MaterialTypography sx={{ml:3,mt:3,mb:3}}> Name : Pallavi Londhe<br/>Address : Mumbai,near rajiv bridge
-     </MaterialTypography>
+     <Typography sx={{ml:3,mt:3,mb:3}}> Name : Pallavi Londhe<br/>Address : Mumbai,near rajiv bridge
+     </Typography>
      </Box>
      <Box sx={{ mb:10,mt:5,ml: 55,display: 'flex', gap: 3, flexWrap: 'wrap',height:50}}>
      <MaterialButton
@@ -131,14 +116,14 @@ export default function SlotSelection() {
           variant={dialog}
         >
           <ModalClose />
-          <JoyTypography level='h2' id="variant-modal-title" component="h2" level="inherit">
+          <Typography variant='h2' id="variant-modal-title" component="h2" >
             Add Quick Client Patient
-          </JoyTypography>
+          </Typography>
          <divider/>
         <Box sx={{width:570,mt:3}}>
-          <JoyTypography level='h2' id="variant-modal-description" textColor="inherit">
+          <Typography variant='h2' id="variant-modal-description" textColor="inherit">
             Client Details
-          </JoyTypography>
+          </Typography>
           <Box sx={{display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
             <Input sx=
             {{ "--Input-paddingInline": "10px",
@@ -217,9 +202,9 @@ export default function SlotSelection() {
             }}
              placeholder="Email Address" />
           </Box>
-          <JoyTypography level='h2' id="variant-modal-description" textColor="inherit">
+          <Typography variant='h2' id="variant-modal-description" textColor="inherit">
             Patient Details
-          </JoyTypography>
+          </Typography>
           <Box sx={{mt:2, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
             <Input sx=
             {{ "--Input-paddingInline": "10px",

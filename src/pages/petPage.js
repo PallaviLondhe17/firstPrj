@@ -1,27 +1,11 @@
 import * as React from 'react';
-import { useState } from 'react';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import {CardActionArea, CardActions, TextField } from '@mui/material';
-import Container from '@mui/material/Container';
 import Box from '@mui/joy/Box';
-import {ThemeProvider } from '@mui/system';
-import Grid from '@mui/material/Grid';
-import image from './istockphoto-1126645371-612x612.jpeg'
-import Divider from '@mui/material/Divider';
-import Button from '@mui/joy/Button';
 import Sheet from '@mui/joy/Sheet';
-import CardCover from '@mui/joy/CardCover';
-import MaterialTypography, {typographyClasses as muiTypographyClasses,} from '@mui/material/Typography';
-import JoyTypography, {typographyClasses as joyTyographyClasses,} from '@mui/joy/Typography';
 import Stack from '@mui/material/Stack';
 import { IconButton } from '@mui/joy';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import { styled } from '@mui/joy/styles';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import SwipeableDrawer from './actions/drawerPage';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
 import {Pets} from '@mui/icons-material';
 import {useNavigate} from "react-router-dom" 
@@ -65,12 +49,12 @@ export default function PetPage() {
           <Item sx={{bgcolor:'#0277BD',color:'#fff', fontWeight:'soft',borderRadius: 'sm',}}>{`${current.toLocaleDateString(locale, { month: 'long' })}`+` `+`${d.getFullYear()}`}</Item> 
         </Stack>
         <Stack sx={{mt:5,width:500,border: '1px solid grey'}}> 
-          <MaterialTypography sx={{ml:3,mt:3}}>Akshay Kumar <br/> Timing : 9:00 AM to 9:30 AM <br/>Client Name : Pallavi </MaterialTypography>
+          <Typography sx={{ml:3,mt:3}}>Akshay Kumar <br/> Timing : 9:00 AM to 9:30 AM <br/>Client Name : Pallavi </Typography>
         </Stack>
      </Stack>
  </Box>
      <Box component='label' sx={{mt:3,display: 'flex',ml:80,flexWrap: 'wrap'}}>
-     <MaterialTypography variant='h6'>Select Your Pet</MaterialTypography>
+     <Typography variant='h6'>Select Your Pet</Typography>
      </Box>
      <Box 
      sx={{display:'flex',justifyContent:'center',ml:75,mt:5,mb:5,border:'1px solid grey',width:200,height:100}}
@@ -95,14 +79,14 @@ export default function PetPage() {
           variant={dialog}
         >
           <ModalClose />
-          <JoyTypography level='h2' id="variant-modal-title" component="h2" level="inherit">
+          <Typography id="variant-modal-title" component="h2">
             Add Quick Client Patient
-          </JoyTypography>
+          </Typography>
          <divider/>
         <Box sx={{width:570,mt:3}}>
-          <JoyTypography level='h2' id="variant-modal-description" textColor="inherit">
+          <Typography  id="variant-modal-description">
             Patient Details
-          </JoyTypography>
+          </Typography>
           <Box sx={{mt:2, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
             <Input sx=
             {{ "--Input-paddingInline": "10px",

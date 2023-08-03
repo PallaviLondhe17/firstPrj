@@ -2,21 +2,23 @@ import * as React from 'react';
 import { useState } from 'react';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import {CardActionArea, CardActions } from '@mui/material';
-import Container from '@mui/material/Container';
-import Box from '@mui/joy/Box';
-import Grid from '@mui/material/Grid';
-import image from './istockphoto-1126645371-612x612.jpeg'
-import Divider from '@mui/material/Divider';
-import Button from '@mui/joy/Button';
+import Button from '@mui/material/Button';
 import Sheet from '@mui/joy/Sheet';
 import CardCover from '@mui/joy/CardCover';
-import MaterialTypography, {typographyClasses as muiTypographyClasses,} from '@mui/material/Typography';
-import JoyTypography, {typographyClasses as joyTyographyClasses,} from '@mui/joy/Typography';
-import Stack from '@mui/material/Stack';
-import ClinicPage from './clinicpage';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from  '@mui/material/Typography';
 import {useNavigate} from "react-router-dom" 
+
+const theme = createTheme({
+  typography: {
+    poster: {
+      fontSize: '1.2rem',
+      color: 'red',
+      fontWeight:'bold'
+    },
+    h3: true,
+  },
+});
 
 export default function EntryPage(props) {
   const [variant, setVariant] = React.useState('solid');
@@ -25,11 +27,11 @@ export default function EntryPage(props) {
   return (
     <>
     <Sheet id='firstPage' variant="outlined" color="neutral" sx={{ p: 4 }} component="div">
-        <Card  sx={{ml:40, width: 700 ,height: 350, px: 5,py:5,justifyContent: 'center'}}>
+        <Card  sx={{ml:30, width: 800 ,height: 350, px: 5,py:5,justifyContent: 'center'}}>
     <CardCover>
         <img
-          src="https://pikwizard.com/pw/medium/3ab42cd53b045a4f24b1187856600adb.avif?w=-100"
-          srcSet="https://pikwizard.com/pw/medium/3ab42cd53b045a4f24b1187856600adb.avif?w=-100"
+          src="https://pikwizard.com/pw/medium/3ab42cd53b045a4f24b1187856600adb.avif"
+          srcSet="https://pikwizard.com/pw/medium/3ab42cd53b045a4f24b1187856600adb.avif"
           loading="lazy"
           alt=""
         />
@@ -42,16 +44,16 @@ export default function EntryPage(props) {
       />
       
         <CardContent>
-        <JoyTypography fontSize="xl" fontWeight="lg" textColor="">
-            Online Booking available for non-urgent medical needs including routine vaccinations & testing.
-            For urgent medical needs such as: eye problems, bleeding, collapse, vomiting, diarrhea or
-            anything you feel may be urgent or life-theatening Please Call
-        <JoyTypography fontSize="xl" fontWeight="lg" textColor="#ff0000"> Emergency clinic: 20 </JoyTypography>
+        <ThemeProvider theme={theme}>
+        <Typography variant="h6">
+            Online Booking available for non-urgent medical needs including routine vaccinations & testing. For urgent medical needs such as: eye problems, bleeding, collapse, vomiting, diarrhea or anything you feel may be urgent or life-theatening Please Call
+        <Typography variant="poster"><br/> Emergency clinic: 20 </Typography>
            
-        </JoyTypography>
+        </Typography>
+        </ThemeProvider>
         </CardContent>
-  
-        <Button sx={{ m: 'auto' }} size="md" onClick ={()=>{ navigate("/clinicPage")}}  variant={variant} color="primary">
+ 
+        <Button sx={{ m: 'auto' }} onClick ={()=>{ navigate("/clinicPage")}}  variant='contained'>
           Book Online Appointment
         </Button>
      
