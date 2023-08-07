@@ -1,22 +1,21 @@
 import * as React from 'react';
-import {CardActionArea, CardActions, TextField } from '@mui/material';
-import Box from '@mui/joy/Box';
+import {TextField } from '@mui/material';
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import Sheet from '@mui/joy/Sheet';
-import { IconButton } from '@mui/joy';
+import { IconButton } from '@mui/material';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { TaskSharp } from '@mui/icons-material';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom" 
 
-const Item = styled(Sheet)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     borderRadius: 4,
-    color: theme.vars.palette.text.primary,
+    color: theme.palette.text.primary,
     maxWidth: 250,
   }));
 

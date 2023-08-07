@@ -5,11 +5,12 @@ import { styled ,useTheme} from '@mui/material/styles';
 import Collapse from '@mui/material/Collapse';
 import datafile from './datafile.json';
 import {useNavigate} from "react-router-dom" 
+import { Paper } from '@mui/material';
 
 const drawerWidth = 40;
 const drawerBleeding = 20;
 
-const Item = styled(Box)(({ theme }) => ({
+const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),

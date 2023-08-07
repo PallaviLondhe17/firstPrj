@@ -1,22 +1,20 @@
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import Sheet from '@mui/joy/Sheet';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { IconButton } from '@mui/joy';
+import { IconButton } from '@mui/material';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import {useNavigate} from "react-router-dom" 
 import ListDrawer from './actions/listdata';
+import { Paper } from '@mui/material';
 
-const Item = styled(Sheet)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    borderRadius: 4,
-    color: theme.vars.palette.text.primary,
-    maxWidth: 250,
+    color: theme.palette.text.primary,
   }));
    
 export default function Slot_s() {

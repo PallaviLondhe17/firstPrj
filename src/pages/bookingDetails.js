@@ -1,19 +1,18 @@
 import * as React from 'react';
-import Box from '@mui/joy/Box';
+import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import Sheet from '@mui/joy/Sheet';
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import { FileCopySharp,Person3Sharp,TaskSharp,PersonSharp,ScheduleSharp,AlarmOnSharp,LocalHospital } from '@mui/icons-material';
 import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
 import {useNavigate} from "react-router-dom" 
 
-const Item = styled(Sheet)(({ theme }) => ({
+const Item = styled(Box)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     borderRadius: 4,
-    color: theme.vars.palette.text.primary,
+    color: theme.palette.text.primary,
     maxWidth: 250,
   }));
   

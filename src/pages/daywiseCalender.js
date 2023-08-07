@@ -1,30 +1,31 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/joy/Box';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Sheet from '@mui/joy/Sheet';
 import ArrowBackIosNewSharp from '@mui/icons-material/ArrowBackIosNewSharp'
 import ArrowForwardIosSharp from '@mui/icons-material/ArrowForwardIosSharp'
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import {useNavigate} from "react-router-dom" 
 import datefile from "./actions/datefile.json"
 
-const Item1 = styled(Sheet)(({ theme }) => ({
+const Item1 = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
   borderRadius: 4,
-  color: theme.vars.palette.text.primary,
+  color: theme.palette.text.primary,
   maxWidth: 250,
 }));
-const Arrowicon = styled(Sheet)(({ theme }) => ({
+const Arrowicon = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
   borderRadius: 4,
   maxWidth: 5,
 }));
+
+
 
 export default function DaywiseCalender() {
   const current = new Date();
@@ -38,7 +39,7 @@ export default function DaywiseCalender() {
   
   return (
     <>  
-    <Sheet color="neutral" sx={{ p: 4}} >    
+    <Box color="neutral" sx={{ p: 4}} >    
     <Box sx={{justifyContent: 'center'}}>
         <Typography component="div">
            Select a Day Of <Box sx={{textDecoration:'underline'}}> Akshay Kumar</Box>
@@ -48,7 +49,7 @@ export default function DaywiseCalender() {
     sx={{display:'flex',flexWrap:'wrap',mt:5,ml:30,width:900,alignItems:'center'}}
     >
     <ArrowBackIosNewSharp />
-    {datefile.data.date.map((dates,index)=>
+    {datefile.data.date.map((dates,index)=> 
     <Box 
       sx={{
         display: 'fixed',
@@ -69,6 +70,7 @@ export default function DaywiseCalender() {
      <Item1 sx={{fontWeight:'soft',borderRadius: 'sm',}}>{dates.month}</Item1> 
      </Paper>
      </Box>
+      
 )}
       <ArrowForwardIosSharp sx={{ml:1}}/>
 
@@ -82,7 +84,7 @@ export default function DaywiseCalender() {
         >
           Cancel
         </Button>    
-    </Sheet>
+    </Box>
     </>
   )
 }

@@ -1,31 +1,45 @@
 import * as React from 'react';
-import Box from '@mui/joy/Box';
-import Sheet from '@mui/joy/Sheet';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { IconButton } from '@mui/joy';
+import { Divider, IconButton } from '@mui/material';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import {Pets} from '@mui/icons-material';
 import {useNavigate} from "react-router-dom" 
-import Input from '@mui/joy/Input';
-import NativeSelect from '@mui/material/NativeSelect';
-import Modal from '@mui/joy/Modal';
-import ModalClose from '@mui/joy/ModalClose';
-import ModalDialog from '@mui/joy/ModalDialog';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
+import Modal from '@mui/material/Modal';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
 
-const Item = styled(Sheet)(({ theme }) => ({
+
+const Item = styled(Box)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     borderRadius: 4,
-    color: theme.vars.palette.text.primary,
-    maxWidth: 250,
+    color: theme.palette.text.primary,
+    maxWidth: 400,
   }));
    
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    height:300,
+    bgcolor: 'background.paper',
+    //border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 export default function PetPage() {
     const current = new Date();
   let monthvar=current.getMonth();
@@ -34,7 +48,9 @@ export default function PetPage() {
   let mon=new Date(current.getFullYear(), 0, 0)
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
-  const [dialog, setDialog] = React.useState(undefined);
+  const [dialog, setDialog] = React.useState(false);
+  const handleOpen = () => setDialog(true);
+  const handleClose = () => setDialog(false);
   let navigate = useNavigate() 
   return (
     <>
@@ -62,113 +78,92 @@ export default function PetPage() {
       <Item sx={{mt:3}}><Pets/></Item><Item sx={{mt:3}}>Max</Item>
      </Box>
          <Box sx={{ mb:10,mt:5,ml: 80,display: 'flex', gap: 3, flexWrap: 'wrap',height:40}}>
-        <MaterialButton
+        <Button
           variant="contained"
           size="small"
-          onClick={() => {
-            setDialog('plain');
-          }}
+          onClick={handleOpen}
         >
          Add new pet
-        </MaterialButton> 
+        </Button> 
      </Box>  
-     <Modal open={!!dialog} onClose={() => setDialog(undefined)}>
-        <ModalDialog
+     <Modal open={dialog}   onClose={handleClose}
           aria-labelledby="variant-modal-title"
           aria-describedby="variant-modal-description"
-          variant={dialog}
         >
-          <ModalClose />
+          <Box sx={style}>
           <Typography id="variant-modal-title" component="h2">
             Add Quick Client Patient
           </Typography>
-         <divider/>
-        <Box sx={{width:570,mt:3}}>
-          <Typography  id="variant-modal-description">
+          <Divider/>
+        <Box sx={{width:700,mt:3}}>
+          <Typography sx={{fontSize:17,fontWeight:50}}  id="variant-modal-description">
             Patient Details
           </Typography>
-          <Box sx={{mt:2, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
-             "--Input-radius": "3px",
-             "--Input-minHeight": "37px",
-             fontSize: 'var(--joy-fontSize-sm)',
-             width:200
-            }}
-             placeholder="Patient Name" />
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
-             "--Input-radius": "3px",
-             "--Input-minHeight": "37px",
-             fontSize: 'var(--joy-fontSize-sm)',
-             width:70,
-
-            }}
-             placeholder="0.00" />
-            <RadioGroup orientation="horizontal"
-              sx={{ gap: 1, mt: 1 }} 
-              defaultValue="soft" name="radio-buttons-group">
-            <Radio value="KG" label="KG" variant="soft" />
-            <Radio value="LB" label="LB" variant="soft" />
-            <Radio value="OZ" label="OZ" variant="soft" />
-            <Radio value="G" label="G" variant="soft" />
+          <Box component='form' sx={{ '& .MuiTextField-root': { width: '20ch', }, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <TextField size='small' fontSize='10'
+              placeholder="Patient Name" />
+           <TextField  size='small' sx={{width:'3ch'}}  placeholder="0.00" />
+            <RadioGroup size='small' row 
+              name="radio-buttons-group">
+            <FormControlLabel value="KG" control={<Radio />} label="KG"  />
+            <FormControlLabel value="LB" control={<Radio />} label="LB" />
+            <FormControlLabel value="OZ" control={<Radio />} label="OZ"  />
+            <FormControlLabel value="G" control={<Radio />} label="G"  />
             </RadioGroup>
              </Box>
-             <Box sx={{mt:2, display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
-             <NativeSelect
+             <Box sx={{mt:2, display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center'}}>
+             <FormControl>
+             <Select size='small'
              sx={{width:270}}
-            defaultValue={30}
-            inputProps={{
-            name: 'Species',
-            id: 'uncontrolled-native',
-            }}
+             value={30}
+             variant='standard'
             >
-            <option value={10}>Canine(Dog)</option>
-            <option value={20}>Lizard</option>
-            <option value={30}>Tortoise</option>
-            </NativeSelect>
-            <NativeSelect
+            <MenuItem value={10}>Canine(Dog)</MenuItem>
+            <MenuItem value={20}>Lizard</MenuItem>
+            <MenuItem value={30}>Tortoise</MenuItem>
+            </Select>
+            </FormControl>
+            <Select
             sx={{width:270}}
-            defaultValue={30}
-            inputProps={{
-            name: 'Breed',
-            id: 'uncontrolled-native',
-            }}
+            value={30}
+            size='small'  variant='standard'
             >
-            <option value={10}>Alligator</option>
-            <option value={20}>Alpine</option>
-            <option value={30}>American</option>
-            </NativeSelect>
+            <MenuItem value={10}>Alligator</MenuItem>
+            <MenuItem value={20}>Alpine</MenuItem>
+            <MenuItem value={30}>American</MenuItem>
+            </Select>
              </Box>
-             <Input sx=
+             <TextField size='small' sx={{mt:2}}
+             /* sx=
             {{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              width:200,
              mt:2,pr:11
-            }}
+            }}*/
              placeholder="DOB" />
       </Box>
+    
       <Box
       sx={{gap:4,mt:5,ml:50,display:'flex'}}
       >
-      <MaterialButton
+      <Button
       sx={{width:50}}
           variant="soft"
           size="small" 
         >
          close
-        </MaterialButton> 
-      <MaterialButton
-      sx={{width:60, "--Input-radius": "1px"}}
+        </Button> 
+      <Button
+      sx={{width:60, borderRadius: "1px"}}
           variant="contained"
           size="small" 
         >
          save
-        </MaterialButton> 
+        </Button> 
       </Box>
-        </ModalDialog>
+      </Box>
       </Modal>
     </>
   )

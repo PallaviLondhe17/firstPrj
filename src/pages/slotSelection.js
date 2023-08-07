@@ -1,35 +1,70 @@
 import * as React from 'react';
-import {CardActionArea, CardActions, TextField } from '@mui/material';
-import Box from '@mui/joy/Box';
-import Sheet from '@mui/joy/Sheet';
+import {Paper, TextField } from '@mui/material';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { IconButton } from '@mui/joy';
+import { IconButton } from '@mui/material';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
-import { styled } from '@mui/joy/styles';
+import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import MaterialButton,{Button as muiButton}  from '@mui/material/Button';
+import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom" 
-import Input from '@mui/joy/Input';
 import NativeSelect from '@mui/material/NativeSelect';
-import Modal from '@mui/joy/Modal';
-import ModalClose from '@mui/joy/ModalClose';
-import ModalDialog from '@mui/joy/ModalDialog';
-import Radio from '@mui/joy/Radio';
-import RadioGroup from '@mui/joy/RadioGroup';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import CloseIcon from '@mui/icons-material/Close';
+import PropTypes from 'prop-types';
 
 
 
 
-const Item = styled(Sheet)(({ theme }) => ({
+const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     borderRadius: 4,
-    color: theme.vars.palette.text.primary,
+    color: theme.palette.text.primary,
     maxWidth: 250,
   }));
   
+  const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+      padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+      padding: theme.spacing(1),
+    },
+  }));
+  function BootstrapDialogTitle(props) {
+    const { children, onClose, ...other } = props;
   
+    return (
+      <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+        {children}
+        {onClose ? (
+          <IconButton
+            aria-label="close"
+            onClick={onClose}
+            sx={{
+              position: 'absolute',
+              right: 8,
+              top: 8,
+              color: (theme) => theme.palette.grey[500],
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        ) : null}
+      </DialogTitle>
+    );
+  }  
+  BootstrapDialogTitle.propTypes = {
+    children: PropTypes.node,
+    onClose: PropTypes.func.isRequired,
+  };   
 export default function SlotSelection() {
     const current = new Date();
   let monthvar=current.getMonth();
@@ -39,6 +74,8 @@ export default function SlotSelection() {
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
   const [dialog, setDialog] = React.useState(undefined);
+  const handleOpen = () => setDialog(true);
+  const handleClose = () => setDialog(false);
 
   let navigate = useNavigate() 
   return (
@@ -64,12 +101,12 @@ export default function SlotSelection() {
      </Box>
      <Box>
      <TextField required size='small' value='pallavi.londhe@sygina.com' type="search" id="search" placeholder='Search your Information' sx={{width: 300 }} />
-     <MaterialButton
+     <Button
           variant="contained"
           size="small"
           sx={{height:40,fontWeight: 300 }}
           
-      >Search</MaterialButton>
+      >Search</Button>
      </Box>
      </Box>
      <Box onClick ={()=>{ navigate("/petPage")}}
@@ -78,7 +115,7 @@ export default function SlotSelection() {
      </Typography>
      </Box>
      <Box sx={{ mb:10,mt:5,ml: 55,display: 'flex', gap: 3, flexWrap: 'wrap',height:50}}>
-     <MaterialButton
+     <Button
      disabled
      size="small"
      color="success"
@@ -87,8 +124,8 @@ export default function SlotSelection() {
      onClick={() => {
       setDialog('plain');
     }}
-   >register</MaterialButton>
-     <MaterialButton
+   >register</Button>
+     <Button
      
           size="small"
           color="success"
@@ -97,53 +134,40 @@ export default function SlotSelection() {
           onClick ={()=>{ navigate("/slotSelection")}}
         >
           WALK-IN APPOINTMENT BOOKING
-        </MaterialButton>   
-        <MaterialButton
+        </Button>   
+        <Button
           variant="contained"
           size="small"
           sx={{fontWeight: 300,display:'none' }}
           onClick ={()=>{ navigate("/slotSelection")}}
         >
           VIRTUAL APPOINTMENT BOOKING
-        </MaterialButton> 
+        </Button> 
      </Box>  
 
 
-     <Modal open={!!dialog} onClose={() => setDialog(undefined)}>
-        <ModalDialog
-          aria-labelledby="variant-modal-title"
-          aria-describedby="variant-modal-description"
-          variant={dialog}
+     <BootstrapDialog open={dialog} onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
         >
-          <ModalClose />
-          <Typography variant='h2' id="variant-modal-title" component="h2" >
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+          <Typography variant='h6' id="variant-modal-title" component="h6" >
             Add Quick Client Patient
           </Typography>
-         <divider/>
-        <Box sx={{width:570,mt:3}}>
-          <Typography variant='h2' id="variant-modal-description" textColor="inherit">
+          </BootstrapDialogTitle>
+          <DialogContent dividers>
+        <Box sx={{width:600,mt:2}}>
+          <Typography sx={{fontSize:16,fontWeight:30}} id="variant-modal-description" textColor="inherit">
             Client Details
           </Typography>
-          <Box sx={{display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
-             "--Input-radius": "3px",
-             "--Input-minHeight": "37px",
-             fontSize: 'var(--joy-fontSize-sm)',
-             inputSizeSmall:'small',
-             pr:11
-            }} placeholder="First Name" />
-            <Input sx=
-            {{
-               "--Input-paddingInline": "10px",
-               "--Input-radius": "3px",
-               "--Input-minHeight": "37px",
-               fontSize: 'var(--joy-fontSize-sm)',
-               pr:11
-            }} placeholder="Last Name" />
+          <Box component='form' sx={{display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11,fontSize:10}} 
+            placeholder="First Name" />
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}} 
+            placeholder="Last Name" />
           </Box>
           <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}}
+          /*
             {{
                "--Input-paddingInline": "10px",
                "--Input-radius": "3px",
@@ -151,6 +175,7 @@ export default function SlotSelection() {
                fontSize: 'var(--joy-fontSize-sm)',
                pr:11
             }}
+            */
             placeholder="Address1" />
             <NativeSelect
             sx={{width:270}}
@@ -167,61 +192,61 @@ export default function SlotSelection() {
             </NativeSelect>
             </Box>
             <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}}
+            /*{{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              pr:11
-            }}
+            }}*/
              placeholder="City" />
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}}
+            /*{{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              pr:11
-            }}
+            }}*/
              placeholder="Postal Code" />
              </Box>
              <Box sx={{mt:2, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}}
+            /*{{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              pr:11
-            }}
+            }}*/
              placeholder="Phone Number" />
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11}}
+            /*{{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              pr:11
-            }}
+            }}*/
              placeholder="Email Address" />
           </Box>
-          <Typography variant='h2' id="variant-modal-description" textColor="inherit">
+          <Typography sx={{fontSize:16,fontWeight:30}} id="variant-modal-description" textColor="inherit">
             Patient Details
           </Typography>
           <Box sx={{mt:2, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11,width:200}}
+          /*  {{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              width:200
-            }}
+            }}*/
              placeholder="Patient Name" />
-            <Input sx=
-            {{ "--Input-paddingInline": "10px",
+            <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11,width:70}}
+           /* {{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              width:70,
 
-            }}
+            }}*/
              placeholder="0.00" />
             <RadioGroup orientation="horizontal"
               sx={{ gap: 1, mt: 1 }} 
@@ -258,36 +283,36 @@ export default function SlotSelection() {
             <option value={30}>American</option>
             </NativeSelect>
              </Box>
-             <Input sx=
-            {{ "--Input-paddingInline": "10px",
+             <TextField sx={{paddingInline:'10px',minHeight:'37px',pr:11,width:200}}
+           /* {{ "--Input-paddingInline": "10px",
              "--Input-radius": "3px",
              "--Input-minHeight": "37px",
              fontSize: 'var(--joy-fontSize-sm)',
              width:200,
              mt:2,pr:11
-            }}
+            }}*/
              placeholder="DOB" />
       </Box>
-      <Box
-      sx={{gap:4,mt:5,ml:50,display:'flex'}}
-      >
-      <MaterialButton
+      
+         </DialogContent>
+         <DialogActions>
+      <Button
       sx={{width:50}}
           variant="soft"
           size="small" 
         >
          close
-        </MaterialButton> 
-      <MaterialButton
+        </Button> 
+
+      <Button
       sx={{width:60, "--Input-radius": "1px"}}
           variant="contained"
           size="small" 
         >
          save
-        </MaterialButton> 
-      </Box>
-        </ModalDialog>
-      </Modal>
+        </Button> 
+        </DialogActions>
+      </BootstrapDialog>
     </>
   )
 }
