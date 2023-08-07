@@ -17,6 +17,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 
 const Item = styled(Box)(({ theme }) => ({
@@ -49,9 +52,17 @@ export default function PetPage() {
   const locale = 'en';
   const [variant, setVariant] = React.useState('solid');
   const [dialog, setDialog] = React.useState(false);
+  const [species,setSpecies]=React.useState('')
+  const [breed,setBreed]=React.useState('')
   const handleOpen = () => setDialog(true);
   const handleClose = () => setDialog(false);
   let navigate = useNavigate() 
+ const  handleChange=(event)=>{
+  setSpecies(event.target.value)
+ }
+ const handleBreed=(event)=>{
+  setBreed(event.target.value)
+ }
   return (
     <>
 <Box sx={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center'}}>
@@ -95,54 +106,87 @@ export default function PetPage() {
             Add Quick Client Patient
           </Typography>
           <Divider/>
-        <Box sx={{width:700,mt:3}}>
+        <Box sx={{width:600,mt:3}}>
           <Typography sx={{fontSize:17,fontWeight:50}}  id="variant-modal-description">
             Patient Details
           </Typography>
-          <Box component='form' sx={{ '& .MuiTextField-root': { width: '20ch', }, display: 'flex', gap: 2, flexWrap: 'wrap', alignItems: 'center' }}>
-            <TextField size='small' fontSize='10'
+          <Box component='form' sx={{mt:2, '& .MuiTextField-root': { width: '20ch', }, display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
+            <TextField size='small' 
+            inputProps={{
+              style: {
+                fontSize: 14,
+                backgroundColor: '#FFF',
+                //paddingLeft: 5,
+                //paddingRight: 4,
+                color: '#383838',
+              }
+            }}
               placeholder="Patient Name" />
-           <TextField  size='small' sx={{width:'3ch'}}  placeholder="0.00" />
-            <RadioGroup size='small' row 
+           <TextField  
+           inputProps={{
+            style: {
+              fontSize: 14,
+              backgroundColor: '#FFF',
+              //paddingLeft: 5,
+              //paddingRight: 4,
+              color: '#383838',
+            }
+          }}
+           size='small'  placeholder="0.00" />
+            <RadioGroup 
+             sx={{
+              '& .MuiSvgIcon-root': {
+                fontSize: 17,
+                ml:1
+              }}}
+            size='small' row 
               name="radio-buttons-group">
-            <FormControlLabel value="KG" control={<Radio />} label="KG"  />
-            <FormControlLabel value="LB" control={<Radio />} label="LB" />
-            <FormControlLabel value="OZ" control={<Radio />} label="OZ"  />
-            <FormControlLabel value="G" control={<Radio />} label="G"  />
+            <FormControlLabel sx={{'& .MuiTypography-root':{fontSize:14}}} value="KG" control={<Radio />} label="KG"  />
+            <FormControlLabel sx={{'& .MuiTypography-root':{fontSize:14}}} value="LB" control={<Radio />} label="LB" />
+            <FormControlLabel sx={{'& .MuiTypography-root':{fontSize:14}}} value="OZ" control={<Radio />} label="OZ"  />
+            <FormControlLabel sx={{'& .MuiTypography-root':{fontSize:14}}} value="G" control={<Radio />} label="G"  />
             </RadioGroup>
              </Box>
-             <Box sx={{mt:2, display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center'}}>
+             <Box sx={{mt:2, display: 'flex', gap: 7, flexWrap: 'wrap',width:600}}>
              <FormControl>
+             <InputLabel style={{fontSize:'14px'}}  id="select-species">Species</InputLabel>
              <Select size='small'
+             labelId='select-species'
              sx={{width:270}}
-             value={30}
+             value={species}
              variant='standard'
+             onChange={handleChange}
+             label='Species'
+             style={{fontSize:'14px'}}
             >
-            <MenuItem value={10}>Canine(Dog)</MenuItem>
-            <MenuItem value={20}>Lizard</MenuItem>
-            <MenuItem value={30}>Tortoise</MenuItem>
+            <MenuItem style={{fontSize:'14px'}} value={10}>Canine(Dog)</MenuItem>
+            <MenuItem style={{fontSize:'14px'}} value={20}>Lizard</MenuItem>
+            <MenuItem style={{fontSize:'14px'}} value={30}>Tortoise</MenuItem>
             </Select>
             </FormControl>
+            <FormControl>
+            <InputLabel style={{fontSize:'14px'}}  id="select-breed">Breed</InputLabel>
             <Select
+            labelId='select-breed'
             sx={{width:270}}
             value={30}
-            size='small'  variant='standard'
+            size='small'  
+            variant='standard'
+            value={breed}
+            onChange={handleBreed}
+            style={{fontSize:'14px'}} 
             >
-            <MenuItem value={10}>Alligator</MenuItem>
-            <MenuItem value={20}>Alpine</MenuItem>
-            <MenuItem value={30}>American</MenuItem>
+            <MenuItem style={{fontSize:'14px'}}  value={10}>Alligator</MenuItem>
+            <MenuItem style={{fontSize:'14px'}} value={20}>Alpine</MenuItem>
+            <MenuItem style={{fontSize:'14px'}} value={30}>American</MenuItem>
             </Select>
+            </FormControl>
              </Box>
-             <TextField size='small' sx={{mt:2}}
-             /* sx=
-            {{ "--Input-paddingInline": "10px",
-             "--Input-radius": "3px",
-             "--Input-minHeight": "37px",
-             fontSize: 'var(--joy-fontSize-sm)',
-             width:200,
-             mt:2,pr:11
-            }}*/
-             placeholder="DOB" />
+             <Box sx={{mt:2}}>
+             <LocalizationProvider dateAdapter={AdapterDayjs}>
+             <DatePicker label='DOB'  slotProps={{textField:{size:'small'}}}/>
+             </LocalizationProvider>
+             </Box>
       </Box>
     
       <Box
@@ -152,6 +196,8 @@ export default function PetPage() {
       sx={{width:50}}
           variant="soft"
           size="small" 
+          onClick={handleClose}
+          open={dialog}
         >
          close
         </Button> 
