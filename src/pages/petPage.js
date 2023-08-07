@@ -197,7 +197,6 @@ export default function PetPage() {
           variant="soft"
           size="small" 
           onClick={handleClose}
-          open={dialog}
         >
          close
         </Button> 
