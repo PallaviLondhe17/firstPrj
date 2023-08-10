@@ -79,7 +79,7 @@ export default function PetPage() {
           <Typography sx={{ml:3,mt:3}}>Akshay Kumar <br/> Timing : 9:00 AM to 9:30 AM <br/>Client Name : Pallavi </Typography>
         </Stack>
      </Stack>
- </Box>
+</Box>
      <Box component='label' sx={{mt:3,display: 'flex',ml:80,flexWrap: 'wrap'}}>
      <Typography variant='h6'>Select Your Pet</Typography>
      </Box>
@@ -169,7 +169,6 @@ export default function PetPage() {
             <Select
             labelId='select-breed'
             sx={{width:270}}
-            value={30}
             size='small'  
             variant='standard'
             value={breed}
