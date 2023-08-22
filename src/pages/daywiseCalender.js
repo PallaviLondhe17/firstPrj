@@ -4,10 +4,15 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ArrowBackIosNewSharp from "@mui/icons-material/ArrowBackIosNewSharp";
 import ArrowForwardIosSharp from "@mui/icons-material/ArrowForwardIosSharp";
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import { useTheme } from '@mui/material/styles';
+import MobileStepper from '@mui/material/MobileStepper';
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { useNavigate } from "react-router-dom";
 import datefile from "./actions/datefile.json";
+import { StepButton,Step, SliderThumb } from '@mui/material';
 
 const Item1 = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -34,6 +39,20 @@ export default function DaywiseCalender() {
   const locale = "en";
   const [variant, setVariant] = React.useState("solid");
   let navigate = useNavigate();
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const steps=datefile.data
+  const maxSteps = 4
+
+  const handleNext = () => {
+    alert("Hello")
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    alert("Hie")
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
 
   return (
     <>
@@ -54,9 +73,11 @@ export default function DaywiseCalender() {
             alignItems: "center",
           }}
         >
-          <ArrowBackIosNewSharp />
+         <Step>
+         <KeyboardArrowLeft  onClick={handleNext}/>
+        </Step> 
           {datefile.data.date.map((dates, index) => (
-            <Box
+            <Box 
               sx={{
                 display: "fixed",
                 flexWrap: "wrap",
@@ -85,7 +106,10 @@ export default function DaywiseCalender() {
               </Paper>
             </Box>
           ))}
-          <ArrowForwardIosSharp sx={{ ml: 1 }} />
+        <Step>
+        <KeyboardArrowRight sx={{ml:2}} onClick={handleBack} />
+        </Step>
+        
         </Box>
         <Button
           variant="contained"
