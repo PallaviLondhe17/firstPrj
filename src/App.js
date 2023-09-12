@@ -13,35 +13,39 @@ import ConfirmPage from './pages/confirmPage';
 import PetPage from './pages/petPage';
 import {Link} from "react-router-dom"; 
 import BookingDetails from './pages/bookingDetails';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Slot_n from './pages/slot_n';
-
-const theme = createTheme({
-  typography: {
-    poster: {
-      fontSize: '1.2rem',
-      color: 'red',
-      fontWeight:'bold'
-    },
-    h3: true,
-    h5:{fontSize: '2rem'
-    ,fontWeight:'bold'
-    }
-  },
-});
-
+import MainPortal from './PetPortal/MainPortal';
+import AddPatient from './PetPortal/AddPatient';
+import PetDashboard from './PetPortal/PetDashboard';
+import Refill from './PetPortal/Refill';
+import ReqApp from './PetPortal/ReqApp';
+import ModifyPatient from './PetPortal/ModifyPatient';
+import Communication from './PetPortal/Communication';
+import InvoicePage from './PetPortal/InvoicePage';
+import PaymentHistory from './PetPortal/PaymentHistory';
+import RequestMain from './PetPortal/RequestMain';
+import MedicalRec from './PetPortal/MedicalRec';
+import PatientDash from './PetPortal/PatientDash';
+import ReminderList from './PetPortal/ReminderList';
 
 function App() {
   return (
     <div className="App"> 
-    <Box sx={{ml:40, width: 700 , px: 5,py:5,justifyContent: 'center'}}>
-    <Typography  variant='h5'  component="div">
-      Book Your Appointment
-    </Typography>
-    </Box>
-    <Divider/>
-    <Link to="/"/>
-    <Routes>  
+    <Routes> 
+      <Route path="/" element={<PetDashboard/>} /> 
+      <Route path="/AddPatient" element={<AddPatient/>} /> 
+      <Route path="/Refill" element={<Refill/>} /> 
+      <Route path="/ReqApp" element={<ReqApp/>} /> 
+      <Route path="/ModifyPatient" element={<ModifyPatient/>} /> 
+      <Route path="/Communication" element={<Communication/>} /> 
+      <Route path="/InvoicePage" element={<InvoicePage/>} /> 
+      <Route path="/PaymentHistory" element={<PaymentHistory/>} /> 
+      <Route path="/RequestMain" element={<RequestMain/>} /> 
+      <Route path="/MedicalRec" element={<MedicalRec/>} />
+      <Route path="/PatientDash" element={<PatientDash/>} /> 
+      <Route path="/ReminderList" element={<ReminderList/>} /> 
+{/*
+
       <Route path="/" element={<EntryPage/>} />  
       <Route path="/clinicpage" element={<ClinicPage/>} />  
       <Route path="/providerPage" element={<ProviderPage/>} /> 
@@ -52,6 +56,7 @@ function App() {
       <Route path="/petPage" element={<PetPage/>} /> 
       <Route path="/confirmPage" element={<ConfirmPage/>} /> 
       <Route path="/bookingDetails" element={<BookingDetails/>} />   
+*/}
   </Routes> 
   </div> 
   );

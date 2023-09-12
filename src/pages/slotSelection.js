@@ -115,7 +115,7 @@ export default function SlotSelection() {
       setMan("true")
       setDisp("block")
       setEr("true")
-    }else{
+    }else if(searchValue==="pallavi.londhe79@gmail.com"){
       setwarnMsg("");
       setDisp("none")
       setEr("false")
@@ -224,7 +224,7 @@ export default function SlotSelection() {
           </Button>
         </Box>
       </Box>
-      <Box style={{display:'none'}}
+      <Box style={{display: searchValue==='pallavi.londhe79@gmail.com' ? 'block' :'none'}}
         onClick={() => {
           navigate("/petPage");
         }}

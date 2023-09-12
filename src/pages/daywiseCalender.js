@@ -45,12 +45,12 @@ export default function DaywiseCalender() {
   const maxSteps = 4
 
   const handleNext = () => {
-    alert("Hello")
+   // alert("Hello")
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    alert("Hie")
+   // alert("Hie")
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 

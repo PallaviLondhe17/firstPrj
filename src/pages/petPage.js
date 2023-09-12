@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { Divider, IconButton } from "@mui/material";
+import { Divider, FormHelperText, IconButton } from "@mui/material";
 import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
@@ -36,7 +36,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 600,
-  height: 300,
+  height: "auto",
   bgcolor: "background.paper",
   //border: '2px solid #000',
   boxShadow: 24,
@@ -53,8 +53,20 @@ export default function PetPage() {
   const [dialog, setDialog] = React.useState(false);
   const [species, setSpecies] = React.useState("");
   const [breed, setBreed] = React.useState("");
+  const [patName,setpatName]=React.useState("")
+  const [patNameErr,setpatNameErr]=React.useState("")
+  const [speciesErr,setspeciesErr]=React.useState("")
+  const [breedErr,setbreedErr]=React.useState("")
   const handleOpen = () => setDialog(true);
-  const handleClose = () => setDialog(false);
+  const handleClose = () => {
+    setDialog(false);
+    setpatNameErr("")
+    setspeciesErr("")
+    setbreedErr("")
+    setpatName("")
+    setBreed("")
+    setSpecies("")
+  }
   let navigate = useNavigate();
   const handleChange = (event) => {
     setSpecies(event.target.value);
@@ -62,6 +74,16 @@ export default function PetPage() {
   const handleBreed = (event) => {
     setBreed(event.target.value);
   };
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    if(patName===""){
+      setpatNameErr("true")
+    }if(species===""){
+      setspeciesErr("true")
+    }if(breed===""){
+      setbreedErr("true")
+    }
+  }
   return (
     <>
       <Box
@@ -156,7 +178,7 @@ export default function PetPage() {
         aria-labelledby="variant-modal-title"
         aria-describedby="variant-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={style} component="form" onSubmit={handleSubmit}>
           <Typography id="variant-modal-title" component="h2">
             Add Quick Client Patient
           </Typography>
@@ -169,10 +191,8 @@ export default function PetPage() {
               Patient Details
             </Typography>
             <Box
-              component="form"
               sx={{
                 mt: 2,
-                "& .MuiTextField-root": { width: "20ch" },
                 display: "flex",
                 gap: 1,
                 flexWrap: "wrap",
@@ -183,7 +203,7 @@ export default function PetPage() {
                 size="small"
                 inputProps={{
                   style: {
-                    fontSize: 14,
+                    fontSize: 12,
                     backgroundColor: "#FFF",
                     //paddingLeft: 5,
                     //paddingRight: 4,
@@ -191,12 +211,17 @@ export default function PetPage() {
                   },
                 }}
                 placeholder="Patient Name"
+                onChange={e=>setpatName(e.target.value)}
+                value={patName}
+                error={patNameErr==="true"}
+                helperText={patNameErr==="true"? "This field is required." : ""}
               />
               <TextField
                 inputProps={{
                   style: {
-                    fontSize: 14,
+                    fontSize: 12,
                     backgroundColor: "#FFF",
+                   // width:10,
                     //paddingLeft: 5,
                     //paddingRight: 4,
                     color: "#383838",
@@ -217,25 +242,25 @@ export default function PetPage() {
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
+                  sx={{ "& .MuiTypography-root": { fontSize: 12 } }}
                   value="KG"
                   control={<Radio />}
                   label="KG"
                 />
                 <FormControlLabel
-                  sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
+                  sx={{ "& .MuiTypography-root": { fontSize: 12 } }}
                   value="LB"
                   control={<Radio />}
                   label="LB"
                 />
                 <FormControlLabel
-                  sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
+                  sx={{ "& .MuiTypography-root": { fontSize: 12 } }}
                   value="OZ"
                   control={<Radio />}
                   label="OZ"
                 />
                 <FormControlLabel
-                  sx={{ "& .MuiTypography-root": { fontSize: 14 } }}
+                  sx={{ "& .MuiTypography-root": { fontSize: 12 } }}
                   value="G"
                   control={<Radio />}
                   label="G"
@@ -251,8 +276,8 @@ export default function PetPage() {
                 width: 600,
               }}
             >
-              <FormControl>
-                <InputLabel style={{ fontSize: "14px" }} id="select-species">
+              <FormControl error={speciesErr==="true"}>
+                <InputLabel style={{ fontSize: "12px" }} id="select-species">
                   Species
                 </InputLabel>
                 <Select
@@ -263,21 +288,22 @@ export default function PetPage() {
                   variant="standard"
                   onChange={handleChange}
                   label="Species"
-                  style={{ fontSize: "14px" }}
+                  style={{ fontSize: "12px" }}
                 >
-                  <MenuItem style={{ fontSize: "14px" }} value={10}>
+                  <MenuItem style={{ fontSize: "12px" }} value={10}>
                     Canine(Dog)
                   </MenuItem>
-                  <MenuItem style={{ fontSize: "14px" }} value={20}>
+                  <MenuItem style={{ fontSize: "12px" }} value={20}>
                     Lizard
                   </MenuItem>
-                  <MenuItem style={{ fontSize: "14px" }} value={30}>
+                  <MenuItem style={{ fontSize: "12px" }} value={30}>
                     Tortoise
                   </MenuItem>
                 </Select>
+                <FormHelperText>{speciesErr==="true"? "This field is required.":""}</FormHelperText>
               </FormControl>
-              <FormControl>
-                <InputLabel style={{ fontSize: "14px" }} id="select-breed">
+              <FormControl error={breedErr==="true"}>
+                <InputLabel style={{ fontSize: "12px" }} id="select-breed">
                   Breed
                 </InputLabel>
                 <Select
@@ -289,16 +315,17 @@ export default function PetPage() {
                   onChange={handleBreed}
                   style={{ fontSize: "14px" }}
                 >
-                  <MenuItem style={{ fontSize: "14px" }} value={10}>
+                  <MenuItem style={{ fontSize: "12px" }} value={10}>
                     Alligator
                   </MenuItem>
-                  <MenuItem style={{ fontSize: "14px" }} value={20}>
+                  <MenuItem style={{ fontSize: "12px" }} value={20}>
                     Alpine
                   </MenuItem>
-                  <MenuItem style={{ fontSize: "14px" }} value={30}>
+                  <MenuItem style={{ fontSize: "12px" }} value={30}>
                     American
                   </MenuItem>
                 </Select>
+                <FormHelperText>{breedErr==="true"? "This field is required." :""}</FormHelperText>
               </FormControl>
             </Box>
             <Box sx={{ mt: 2 }}>
@@ -324,6 +351,7 @@ export default function PetPage() {
               sx={{ width: 60, borderRadius: "1px" }}
               variant="contained"
               size="small"
+              type="submit"
             >
               save
             </Button>
