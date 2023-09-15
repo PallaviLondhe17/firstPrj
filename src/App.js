@@ -47,7 +47,7 @@ function App() {
     <Route path="/ProviderList" element={<ProviderList/>} /> 
     <Route path="/DateNtime" element={<DateNtime/>} /> 
     <Route path="/PetInfo" element={<PetInfo/>} />
-    <Route path="/BookingDetails" element={<BookingDet/>} /> 
+    <Route path="/BookingDet" element={<BookingDet/>} /> 
      {/*
       <Route path="/" element={<PetDashboard/>} /> 
       <Route path="/AddPatient" element={<AddPatient/>} /> 

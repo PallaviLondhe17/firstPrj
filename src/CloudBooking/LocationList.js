@@ -3,7 +3,7 @@ import CardContent from "@mui/joy/CardContent";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deepOrange } from "@mui/material/colors";
 import { Divider, Grid, Paper,Button } from "@mui/material";
 import { HomeOutlined, MapsHomeWorkRounded } from "@mui/icons-material";
@@ -105,9 +105,10 @@ export default function LocationList() {
             ))}
         </Box>
         </ThemeProvider>
-        <Typography variant="h6" onClick={() => {
-                navigate("/");
-              }}>Back</Typography>
+        <Link to="/" style={{textDecoration:"none"}}>
+        <Typography variant="h6" 
+        >Back</Typography>
+        </Link>
         </>
         
     

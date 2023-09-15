@@ -64,6 +64,31 @@
         {
           "drName": "CONSULTATION"
         }
+      ],
+      "bookingDetJs": [
+        {
+          "label": "Provider:",
+          "det":"Dr. Jao"
+        },
+        {
+          "label": "Clinic Name:",
+          "det":"Modern Vet Hospital"
+        },
+        { "label": "Appointment Date:",
+        "det":"16/9/2023"
+        },
+        {
+          "label": "Time Slot:",
+          "det":"08:20 - 08:40"
+        },
+        {
+          "label": "Patient:",
+          "det":"Orio"
+        },
+        {
+          "label":"Reason for Visit:",
+          "det":""
+        }
       ]
       
   }

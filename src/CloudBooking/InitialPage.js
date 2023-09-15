@@ -24,7 +24,7 @@ export default function InitialPage() {
    <Box 
     display={"flex"} 
     justifyContent={"center"} 
-    marginTop={2}
+    marginTop={10}
     flexBasis={0}
     flexGrow={1}
     maxWidth={"100%"}

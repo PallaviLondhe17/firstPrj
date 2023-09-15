@@ -3,7 +3,7 @@ import * as React from "react"
 import listOfprovider from "./ListofJson/datafile.json"
 import { ArrowBackTwoTone, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
 import { Link } from "react-router-dom"
-import { createTheme,ThemeProvider, styled  } from '@mui/material/styles';
+import { createTheme,ThemeProvider, styled, createMuiTheme  } from '@mui/material/styles';
 import { red,blue, grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
 import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers"
@@ -22,6 +22,8 @@ const theme = createTheme({
       }
     },
 });
+
+
 export default function DateNtime(){
     let navigate = useNavigate();
     return(
@@ -88,9 +90,8 @@ export default function DateNtime(){
     </Grid>
     <Box sx={{mt:2}}>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-    <DateCalendar
-      slotProps={{
-        
+    <DateCalendar 
+      sx={{bgcolor:"#fff8e4",height:900,width:700,di
       }}
     />
     </LocalizationProvider>

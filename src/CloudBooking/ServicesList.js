@@ -88,7 +88,7 @@ export default function ServicesList(){
     <Fab color="info" sx={{my:"10%"}}><KeyboardArrowLeft/></Fab>
     <Box  display={"inline-flex"} gap={2}>
             {listOfstep.serviceJ.map((service,index)=>(
-            <Paper component="li"  style={{listStyle:"none"}} sx={{width:350,height:350,mt:5,bgcolor:"#fff8e4"}} elevation={3}>
+            <Paper component="card"  sx={{width:350,height:380,mt:5,bgcolor:"#fff8e4"}} elevation={3}>
                 <Box component="header" sx={{bgcolor:"#fbd8c2",p:"8px 7px",height:"10%"}}>
                 <Typography sx={{color:"#252354",fontWeight:700,fontSize:20}}>
                     {service.packageName}
@@ -98,9 +98,11 @@ export default function ServicesList(){
                     <Typography sx={{color:"#252354"}}>
                         Package Details:
                     </Typography>
-                    <List>
-                     <Typography sx={{color:"#252354"}}>{service.package_details}</Typography> 
-                     </List>
+                    <Box display="flex" sx={{marginTop:2}}>
+                        <Box component={"li"}/>
+                            <Typography sx={{color:"#252354"}}>{service.package_details}</Typography> 
+                      
+                     </Box>
                 </Box> 
                 <Box display="flex" sx={{height:"10%",ml:4,float:"left",gap:15}}>
                     <Typography sx={{textTransform:"uppercase",textAlign:"left",justifyContent:"left",justifyItems:"left"}}>aed {service.price}</Typography>

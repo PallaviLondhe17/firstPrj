@@ -57,7 +57,7 @@ export default function PetInfo(){
     </Typography>
     </Link>
     <Divider  orientation="vertical" variant="middle" color="primary"  flexItem sx={{mx:2}}/>
-    <Link to="/" style={{textDecoration:"none"}}>
+    <Link to="/BookingDet" style={{textDecoration:"none"}}>
     <Typography sx={{color:"#0f145b",fontWeight:700,fontSize:"1rem"}}>
         Next
     </Typography>
