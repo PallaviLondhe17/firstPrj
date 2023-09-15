@@ -1,0 +1,69 @@
+{
+    "locations": [
+      {
+        "name": "modern vet hospital",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      },
+      {
+        "name": "modern vet hospital",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      },
+      {
+        "name": "modern vet hospital",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      }
+    ],
+    "steps": [
+        {
+          "stepCount": 1,
+          "stepDesc": "Package"
+         
+        },
+        {
+          "stepCount":2,
+          "stepDesc": "Provider"
+        },
+        {
+          "stepCount": 3,
+          "stepDesc": "Date & Time"
+        },
+        {
+          "stepCount": 4,
+          "stepDesc": "Contact & Pet info"
+        }
+      ],
+      "serviceJ": [
+        {
+          "packageName": "CONSULTATION",
+          "package_details": [
+              "Veterinary Consultation"
+          ],
+          "price":"176.43"
+        },
+        {
+          "packageName":"ROYAL CANIN",
+          "package_details": [
+              "Royal Canin Maxi Puppy 15kg (3 To 15 Months)"
+          ],
+          "price":"500"
+        }
+      ],
+      "provider": [
+        {
+          "drName": "CONSULTATION"
+        },
+        {
+          "drName": "ROYAL CANIN"
+        },
+        {
+          "drName": "CONSULTATION"
+        },
+        {
+          "drName": "CONSULTATION"
+        }
+      ]
+      
+  }

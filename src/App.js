@@ -27,11 +27,28 @@ import RequestMain from './PetPortal/RequestMain';
 import MedicalRec from './PetPortal/MedicalRec';
 import PatientDash from './PetPortal/PatientDash';
 import ReminderList from './PetPortal/ReminderList';
+import InitialPage from './CloudBooking/InitialPage';
+import RescheApp from './CloudBooking/RescheApp';
+import LocationList from './CloudBooking/LocationList';
+import ServicesList from './CloudBooking/ServicesList';
+import ProviderList from './CloudBooking/ProviderList';
+import DateNtime from './CloudBooking/DateNtime';
+import PetInfo from './CloudBooking/PetInfo';
+import BookingDet from './CloudBooking/BookingDet';
 
 function App() {
   return (
     <div className="App"> 
     <Routes> 
+    <Route path="/" element={<InitialPage/>} /> 
+    <Route path="/RescheApp" element={<RescheApp/>} /> 
+    <Route path="/LocationList" element={<LocationList/>} />
+    <Route path="/ServicesList" element={<ServicesList/>} /> 
+    <Route path="/ProviderList" element={<ProviderList/>} /> 
+    <Route path="/DateNtime" element={<DateNtime/>} /> 
+    <Route path="/PetInfo" element={<PetInfo/>} />
+    <Route path="/BookingDetails" element={<BookingDet/>} /> 
+     {/*
       <Route path="/" element={<PetDashboard/>} /> 
       <Route path="/AddPatient" element={<AddPatient/>} /> 
       <Route path="/Refill" element={<Refill/>} /> 
@@ -44,7 +61,7 @@ function App() {
       <Route path="/MedicalRec" element={<MedicalRec/>} />
       <Route path="/PatientDash" element={<PatientDash/>} /> 
       <Route path="/ReminderList" element={<ReminderList/>} /> 
-{/*
+
 
       <Route path="/" element={<EntryPage/>} />  
       <Route path="/clinicpage" element={<ClinicPage/>} />  
