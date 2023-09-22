@@ -89,6 +89,81 @@
           "label":"Reason for Visit:",
           "det":""
         }
+      ],
+      "clientDetailsField": [
+        {
+          "fieldname": "first Name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Last name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Dubai",
+          "controlType":"select"
+        },
+        {
+          "fieldname": "City",
+          "controlType":"select"
+        },
+        {
+          "fieldname": "Postal Code",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Phone Number",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Email Address",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Patient Name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Weight",
+          "controlType":"radio",
+           "options":[{
+              "labeln":"KG",
+              "labeln":"LB",
+              "labeln":"OZ",
+              "labeln":"G"
+           }]
+        },
+        {
+          "fieldname": "Species",
+          "controlType":"select",
+           "options":[{
+              "labeln":"canine(Dog)",
+              "labeln":"Feline(Cat)",
+              "labeln":"Bovine(Cow)",
+              "labeln":"Equine(Horse)",
+              "labeln":"Caprine(Goat)",
+              "labeln":"Ovine(Sheep)",
+              "labeln":"Mustalid(Ferrets)"
+
+           }]
+        },
+        {
+          "fieldname": "Breed",
+          "controlType":"select",
+           "options":[{
+              "labeln":"canine(Dog)",
+              "labeln":"Feline(Cat)",
+              "labeln":"Bovine(Cow)",
+              "labeln":"Equine(Horse)",
+              "labeln":"Caprine(Goat)",
+              "labeln":"Ovine(Sheep)",
+              "labeln":"Mustalid(Ferrets)"
+
+           }]
+        },
+        {
+          "fieldname": "BirthDate",
+          "controlType":"Datepicker"
+        }
       ]
-      
   }

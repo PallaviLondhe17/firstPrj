@@ -32,7 +32,7 @@ export default function ProviderList(){
               sx={{ 
                 textShadow:"-4px 1px #252354;",
                 color:"#f7be91",
-                fontSize:"50px",
+                fontSize:`${providers.stepCount===2? "60px":"50px"}`,
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>
@@ -74,7 +74,7 @@ export default function ProviderList(){
             marginTop:"30px"   
             }}
         >
-        <Typography className="fontCl"  sx={{textTransform:"uppercase",fontSize:30,m:5,fontWeight:"bold"}} variant="h6">
+        <Typography className="fontCl"  sx={{textTransform:"uppercase",fontSize:30,m:5}} variant="h6">
            Providers
         </Typography>
         </Box>

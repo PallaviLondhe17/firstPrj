@@ -32,7 +32,7 @@ export default function ServicesList(){
               sx={{ 
                 textShadow:"-4px 1px #252354;",
                 color:"#f7be91",
-                fontSize:"50px",
+                fontSize:`${step.stepCount===1? "60px":"50px"}`,
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>

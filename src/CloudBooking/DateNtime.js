@@ -1,13 +1,14 @@
-import { Box, Paper, Typography,Grid, Divider,Button, List, BottomNavigationAction, BottomNavigation, Fab, TextField, InputBase } from "@mui/material"
+import { Box, Paper, Typography,Grid, Divider,Button, List, BottomNavigationAction, BottomNavigation, Fab, TextField, InputBase,SxProps } from "@mui/material"
 import * as React from "react"
 import listOfprovider from "./ListofJson/datafile.json"
-import { ArrowBackTwoTone, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
+import { ArrowBackTwoTone, FormatLineSpacingRounded, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
 import { Link } from "react-router-dom"
 import { createTheme,ThemeProvider, styled, createMuiTheme  } from '@mui/material/styles';
-import { red,blue, grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
-import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers"
+import { DateCalendar, LocalizationProvider, MonthCalendar } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { getMonthsInYear } from "@mui/x-date-pickers/internals/utils/date-utils"
+
 //const steps = listOfstep.steps
 const theme = createTheme({
     palette: {
@@ -23,9 +24,23 @@ const theme = createTheme({
     },
 });
 
+const propstyle : SxProps={
+  fontSize:"2.5em",
+  backgroundColor:"#fff8e4",
+  width:"50%",
+  height:"50%",
+  "& .MuiDateCalendar-root": {
+    fontSize: "5rem",
+  },
+}
+
 
 export default function DateNtime(){
     let navigate = useNavigate();
+    const calendarDatewise=new Date()
+    const yearvar=calendarDatewise.getFullYear
+    const monthvar=getMonthsInYear()
+    const d
     return(
         <>
         <ThemeProvider theme={theme}>
@@ -36,7 +51,7 @@ export default function DateNtime(){
               sx={{ 
                 textShadow:"-4px 1px #252354;",
                 color:"#f7be91",
-                fontSize:"50px",
+                fontSize:`${providers.stepCount===3? "60px":"50px"}`,
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>
@@ -83,16 +98,26 @@ export default function DateNtime(){
             marginTop:"30px"   
             }}
         >
-        <Typography className="fontCl"  sx={{textTransform:"uppercase",fontSize:30,m:5,fontWeight:"bold"}} variant="h6">
+        <Typography className="fontCl"  sx={{textTransform:"uppercase",fontSize:30,m:5}} variant="h6">
            Date & Time
         </Typography>
         </Box>
     </Grid>
     <Box sx={{mt:2}}>
+   
     <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DateCalendar 
-      sx={{bgcolor:"#fff8e4",height:900,width:700,di
-      }}
+    showDaysOutsideCurrentMonth
+    slotProps={
+      FormatLineSpacingRounded
+    }
+    sx={propstyle}
+     /* sx={{
+        bgcolor:"#fff8e4",
+        height:900,
+        width:700,
+        fontSize: 16,
+      }}*/
     />
     </LocalizationProvider>
     </Box>
