@@ -40,7 +40,7 @@ export default function DateNtime(){
     const calendarDatewise=new Date()
     const yearvar=calendarDatewise.getFullYear
     const monthvar=getMonthsInYear()
-    const d
+    
     return(
         <>
         <ThemeProvider theme={theme}>
