@@ -31,14 +31,23 @@ export default function ServicesList(){
             <Typography className="fontCl"
               sx={{ 
                 textShadow:"-4px 1px #252354;",
-                color:"#f7be91",
-                fontSize:`${step.stepCount===1? "60px":"50px"}`,
+               // color:"#f7be91",
+                color: `${step.stepCount===1? "#a61c00":"#f7be91"}`,
+               // fontSize:`${step.stepCount===1? "60px":"50px"}`,
+                fontSize:"50px",
+                //bgcolor:`${step.stepCount===1? "#a61c00":"none"}`,
+               // p:1,
                 fontWeight:"bold",
-                borderRadius:"50%"
+               // borderRadius:"50%"
                 }}>
              {step.stepCount}
             </Typography>
-            <Typography className="fontCl" variant="caption" sx={{fontWeight:700}}>
+            <Typography className="fontCl" variant="caption" 
+            sx={{
+                fontWeight:700,
+                //bgcolor:`${step.stepCount===1? "#a61c00":"none"}`,
+               // color:`${step.stepCount===1? "#a61c00":"none"}`,
+                }}>
                 {step.stepDesc}
             </Typography>
             </Box> 
@@ -88,7 +97,7 @@ export default function ServicesList(){
     <Fab color="info" sx={{my:"10%"}}><KeyboardArrowLeft/></Fab>
     <Box  display={"inline-flex"} gap={2}>
             {listOfstep.serviceJ.map((service,index)=>(
-            <Paper component="card"  sx={{width:350,height:380,mt:5,bgcolor:"#fff8e4"}} elevation={3}>
+            <Paper component="card"  sx={{width:350,height:380,mt:5,bgcolor:"#fcf1ea"}} elevation={3}>
                 <Box component="header" sx={{bgcolor:"#fbd8c2",p:"8px 7px",height:"10%"}}>
                 <Typography sx={{color:"#252354",fontWeight:700,fontSize:20}}>
                     {service.packageName}

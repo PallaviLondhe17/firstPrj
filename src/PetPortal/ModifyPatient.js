@@ -21,6 +21,7 @@ import {
   Slide,
   Slider,
   Collapse,
+  Grid
 } from "@mui/material";
 import {
   blue,
@@ -147,15 +148,13 @@ export default function ModifyPatient() {
   };
 
   return (
-    <>
-      <Box>
+ <>
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+      
+        <Grid container>
         <MainPortal />
 
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "100%" }}>
+        <Grid xs={9} sx={{p:2}}>
             <Accordion defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -780,9 +779,9 @@ export default function ModifyPatient() {
                 </Button>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          </Grid>
+       
+      </Grid>
     </>
   );
 }

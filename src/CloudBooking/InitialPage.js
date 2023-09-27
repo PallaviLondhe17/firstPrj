@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, colors} from "@mui/material";
 import { red,blue, grey } from "@mui/material/colors";
 import { createTheme,ThemeProvider, styled  } from '@mui/material/styles';
+import frontimage from './images/online_booking_cover.jpeg'
 
 const theme = createTheme({
     palette: {
@@ -22,23 +23,23 @@ export default function InitialPage() {
   return (
     <ThemeProvider theme={theme}>
    <Box 
+   sx={{justifyContent:"center",justifyItems:"center",width:"100%"}}
     display={"flex"} 
-    justifyContent={"center"} 
-    marginTop={10}
-    flexBasis={0}
-    flexGrow={1}
-    maxWidth={"100%"}
+   
+   // justifyContent={"center"} 
+   // justifyItems={"center"}
+    margin={"10%"}
+   // flexBasis={0}
+    //flexGrow={1}
+    width={"80%"}
+    sx={{bgcolor:"#fdddc6"}}
     >
-    <Box>
+      <Box>
       <img
-      src="https://www.vetport.com/main/img/online_booking_cover.jpg"
-      sx={{ 
-        height:"100%",
-         width:"100%"}}
-      />
+      //src="https://www.vetport.com/main/img/online_booking_cover.jpg"
+      src={frontimage}  height={"100%"}/>
       </Box>
-      <Box sx={{bgcolor:"#fdddc6"}}>
-        <Box sx={{width:450,height:200,mx:7,mt:10,mb:2}}>
+      <Box sx={{width:"auto",height:"auto",mx:3,mt:10,justifyItems:"center"}}>
         <Typography 
         sx={{
             textTransform:"uppercase",
@@ -66,14 +67,13 @@ For urgent medical needs such as: eye problems, bleeding, collapse, vomiting, di
         <Button 
             variant="contained" 
             color="secondary" 
-            sx={{my:1,width:400}}
+            sx={{mt:1,width:400}}
             onClick={() => {
                 navigate("/RescheApp");
               }}
         >reschedule/cancel appointment</Button>
         </Box>
       </Box>
-    </Box>
     </ThemeProvider>
   );
 }

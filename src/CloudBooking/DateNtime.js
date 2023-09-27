@@ -1,4 +1,4 @@
-import { Box, Paper, Typography,Grid, Divider,Button, List, BottomNavigationAction, BottomNavigation, Fab, TextField, InputBase,SxProps } from "@mui/material"
+import { Box, Paper, Typography,Grid, Divider,Button, List, BottomNavigationAction, BottomNavigation, Fab, TextField, InputBase,SxProps, Chip } from "@mui/material"
 import * as React from "react"
 import listOfprovider from "./ListofJson/datafile.json"
 import { ArrowBackTwoTone, FormatLineSpacingRounded, KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material"
@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { DateCalendar, LocalizationProvider, MonthCalendar } from "@mui/x-date-pickers"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { getMonthsInYear } from "@mui/x-date-pickers/internals/utils/date-utils"
+import { DayCalendar } from "@mui/x-date-pickers/internals"
+import { fontGrid } from "@mui/material/styles/cssUtils"
 
 //const steps = listOfstep.steps
 const theme = createTheme({
@@ -24,22 +26,13 @@ const theme = createTheme({
     },
 });
 
-const propstyle : SxProps={
-  fontSize:"2.5em",
-  backgroundColor:"#fff8e4",
-  width:"50%",
-  height:"50%",
-  "& .MuiDateCalendar-root": {
-    fontSize: "5rem",
-  },
-}
 
 
 export default function DateNtime(){
     let navigate = useNavigate();
-    const calendarDatewise=new Date()
-    const yearvar=calendarDatewise.getFullYear
-    const monthvar=getMonthsInYear()
+    //const calendarDatewise=new Date()
+    //const yearvar=calendarDatewise.getFullYear
+    //const monthvar=getMonthsInYear()
     
     return(
         <>
@@ -50,8 +43,10 @@ export default function DateNtime(){
             <Typography className="fontCl"
               sx={{ 
                 textShadow:"-4px 1px #252354;",
-                color:"#f7be91",
-                fontSize:`${providers.stepCount===3? "60px":"50px"}`,
+                //color:"#f7be91",
+                color: `${providers.stepCount===3? "#a61c00":"#f7be91"}`,
+               // fontSize:`${providers.stepCount===3? "60px":"50px"}`,
+               fontSize:"50px",
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>
@@ -103,9 +98,88 @@ export default function DateNtime(){
         </Typography>
         </Box>
     </Grid>
-    <Box sx={{mt:2}}>
+ 
    
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <Box sx={{my:5}}>
+  
+    <Grid container sx={{justifyContent:"center",justifyItems:"center",mt:2}}>
+        <Box sx={{bgcolor:"#fff8e4", height:"auto",width:800,fontSize:"1rem"}}>
+            <Box sx={{height:70,bgcolor:"#a61c00"}} id="variant-modal-title">
+                <Box display="flex">
+                <Typography variant="h6" 
+                     sx={{
+                        textTransform:"uppercase",
+                        color:"#fff",
+                        fontWeight:700,
+                        width:"50%",
+                        padding:"20px",
+                        display:"flex",
+                        flexWrap:"wrap"
+                        }}>
+                   Modern vet...
+                </Typography>
+                <Typography variant="h6" 
+                     sx={{
+                        textTransform:"uppercase",
+                        color:"#fff",
+                        fontWeight:700,
+                        width:"50%",
+                        padding:"20px",
+                        display:"flex",
+                        flexWrap:"wrap"
+                        }}>
+                   dr joao
+                </Typography>
+                <Typography variant="h6" 
+                     sx={{
+                        textTransform:"uppercase",
+                        color:"#fff",
+                        fontWeight:700,
+                        width:"50%",
+                        padding:"20px",
+                        display:"flex",
+                        flexWrap:"wrap"
+                        }}>
+                   Time: <Chip label="10:00" sx={{bgcolor:"#fff",borderRadius:10,ml:1,color:"#a61c00"}}/>
+                </Typography>
+                </Box>
+            </Box>
+            <Grid container display={"contents"}  
+            sx={{
+                  height:"auto",
+                  width:"auto%",
+                  position:"relative",
+                  margin:"15px auto"
+                }}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateCalendar disablePast 
+                  showDaysOutsideCurrentMonth
+              
+              views={["day"]}
+               sx={{display:"initial",
+               bgcolor:"#fff8e4",
+               height:"auto",
+               ".MuiPickersDay-root":{
+               fontSize:20,
+               margin:3,
+               maxWidth:"500px",
+               height:"auto"
+               },
+               ".MuiDayCalendar-weekDayLabel":{
+                fontSize:20,
+                margin:3,
+                fontWeight:700
+               }
+
+              }}
+              
+              />
+              </LocalizationProvider>
+            </Grid>
+        </Box>
+    </Grid>
+       
+   {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
     <DateCalendar 
     showDaysOutsideCurrentMonth
     slotProps={
@@ -117,11 +191,10 @@ export default function DateNtime(){
         height:900,
         width:700,
         fontSize: 16,
-      }}*/
-    />
-    </LocalizationProvider>
+      }}
+    /></LocalizationProvider>*/}
     </Box>
-    </ThemeProvider>
+    </ThemeProvider>  
 
    
 </>

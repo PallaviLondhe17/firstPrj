@@ -21,6 +21,7 @@ import {
   Slide,
   Slider,
   Collapse,
+  Grid
 } from "@mui/material";
 import {
   blue,
@@ -154,15 +155,13 @@ export default function RequestMain() {
 
   return (
     <>
-      <Box>
+      
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
 
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "100%" }}>
-            <Accordion defaultExpanded={true}>
+        <Grid xs={9} sx={{p:2}}>
+            <Accordion defaultExpanded={true} sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 //aria-controls="panel1a-content"
@@ -219,7 +218,7 @@ export default function RequestMain() {
                 </TableContainer>
               </AccordionDetails>
             </Accordion>
-            <Accordion defaultExpanded={true}>
+            <Accordion defaultExpanded={true} sx={{mb:2}}> 
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 //aria-controls="panel1a-content"
@@ -270,9 +269,8 @@ export default function RequestMain() {
                 </TableContainer>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          </Grid>
+        </Grid>
     </>
   );
 }

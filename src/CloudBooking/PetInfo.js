@@ -66,8 +66,10 @@ export default function PetInfo(){
             <Typography className="fontCl"
               sx={{ 
                 textShadow:"-4px 1px #252354;",
-                color:"#f7be91",
-                fontSize:`${providers.stepCount===4? "60px":"50px"}`,
+                //color:"#f7be91",
+                color: `${providers.stepCount===4? "#a61c00":"#f7be91"}`,
+               // fontSize:`${providers.stepCount===4? "60px":"50px"}`,
+               fontSize:"50px",
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>

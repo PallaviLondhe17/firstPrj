@@ -22,6 +22,7 @@ import {
   Slider,
   Collapse,
   TextareaAutosize,
+  Grid
 } from "@mui/material";
 import {
   blue,
@@ -129,14 +130,10 @@ export default function ReqApp() {
 
   return (
     <>
-      <Box>
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
-
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "100%" }}>
+        <Grid xs={9} sx={{p:2}}>
             <Accordion defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -471,9 +468,8 @@ export default function ReqApp() {
                 </Box>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          </Grid>
+        </Grid>
     </>
   );
 }

@@ -113,20 +113,18 @@ export default function PaymentHistory() {
   let navigate = useNavigate();
   return (
     <>
-      <Box>
+      
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
 
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "content" }}>
+        <Grid xs={9} sx={{p:2}}>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0" }}
               >
                 <Grid display="flex" sx={{ width: "auto" }}>
                   <Typography
@@ -445,9 +443,8 @@ export default function PaymentHistory() {
                 </Box>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          </Grid>
+        </Grid>
     </>
   );
 }

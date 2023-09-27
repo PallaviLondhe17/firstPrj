@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { createTheme,ThemeProvider, styled  } from '@mui/material/styles';
 import { red,blue, grey } from "@mui/material/colors";
 import { useNavigate } from "react-router-dom";
+import providerImage from "./images/new_staff_avtar.png"
 //const steps = listOfstep.steps
 const theme = createTheme({
     palette: {
@@ -31,8 +32,10 @@ export default function ProviderList(){
             <Typography className="fontCl"
               sx={{ 
                 textShadow:"-4px 1px #252354;",
-                color:"#f7be91",
-                fontSize:`${providers.stepCount===2? "60px":"50px"}`,
+                //color:"#f7be91",
+                color: `${providers.stepCount===2? "#a61c00":"#f7be91"}`,
+               // fontSize:`${providers.stepCount===2? "60px":"50px"}`,
+               fontSize:"50px",
                 fontWeight:"bold",
                 borderRadius:"50%"
                 }}>
@@ -91,7 +94,9 @@ export default function ProviderList(){
     <Box component={"ul"} style={{ listStyle: "none" }} display={"inline-flex"} gap={2}>
             {listOfprovider.provider.map((providers,index)=>(
             <Paper component="li" sx={{width:350,height:"auto"}} elevation={3}>
-                <img height="200px" src="https://modernvet.vetport.com/assets/images/new_staff_avtar.png"
+                <img height="200px" 
+                //src="https://modernvet.vetport.com/assets/images/new_staff_avtar.png"
+                src={providerImage}
                   alt="text" style={{objectFit:"contain",width:"100%",textAlign:"center"}}
                 />
                 {/*<image sx={{bgcolor:"#f8f9fa"}}>

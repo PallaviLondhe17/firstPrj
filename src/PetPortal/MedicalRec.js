@@ -115,20 +115,18 @@ export default function MedicalRec() {
   let navigate = useNavigate();
   return (
     <>
-      <Box>
+     
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
-
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "content" }}>
+        
+        <Grid xs={9} sx={{p:2}}>
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0"}}
               >
                 <Box sx={{ width: 700 }} display="flex">
                   <Typography
@@ -339,9 +337,8 @@ export default function MedicalRec() {
                 </Box>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          </Grid>
+        </Grid>
     </>
   );
 }

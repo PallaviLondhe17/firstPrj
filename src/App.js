@@ -35,6 +35,7 @@ import ProviderList from './CloudBooking/ProviderList';
 import DateNtime from './CloudBooking/DateNtime';
 import PetInfo from './CloudBooking/PetInfo';
 import BookingDet from './CloudBooking/BookingDet';
+import SimpleAccordion from './PetPortal/testpage';
 
 function App() {
   return (
@@ -48,8 +49,10 @@ function App() {
     <Route path="/DateNtime" element={<DateNtime/>} /> 
     <Route path="/PetInfo" element={<PetInfo/>} />
     <Route path="/BookingDet" element={<BookingDet/>} /> 
-     {/*
-      <Route path="/" element={<PetDashboard/>} /> 
+
+   {/*  Patient Portal Project  */}  
+      <Route path="/PetDashboard" element={<PetDashboard/>} /> 
+      <Route path="/testpage" element={<SimpleAccordion/>} /> 
       <Route path="/AddPatient" element={<AddPatient/>} /> 
       <Route path="/Refill" element={<Refill/>} /> 
       <Route path="/ReqApp" element={<ReqApp/>} /> 
@@ -62,7 +65,7 @@ function App() {
       <Route path="/PatientDash" element={<PatientDash/>} /> 
       <Route path="/ReminderList" element={<ReminderList/>} /> 
 
-
+{/*
       <Route path="/" element={<EntryPage/>} />  
       <Route path="/clinicpage" element={<ClinicPage/>} />  
       <Route path="/providerPage" element={<ProviderPage/>} /> 

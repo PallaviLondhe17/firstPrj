@@ -14,6 +14,7 @@ import {
   Fab,
   alpha,
   getContrastRatio,
+  Grid,
 } from "@mui/material";
 import {
   blue,
@@ -36,6 +37,8 @@ import AddPatient from "./AddPatient";
 import { Link, useNavigate } from "react-router-dom";
 import Menubar from "./menubar";
 import MainPortal from "./MainPortal";
+
+
 
 const theme = createTheme({
   palette: {
@@ -82,15 +85,15 @@ export default function PetDashboard() {
   let navigate = useNavigate();
   return (
     <>
-      <Box>
+     
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+   
+       <Grid container>
+        
         <MainPortal />
-
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "content" }}>
-            <Accordion>
+        
+        <Grid xs={9} sx={{p:2}}>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -355,12 +358,12 @@ export default function PetDashboard() {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0"}}
               >
                 <Box sx={{ flexGrow: 1 }}>
                   <Typography
@@ -376,12 +379,12 @@ export default function PetDashboard() {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0"}}
               >
                 <Box sx={{ flexGrow: 1 }}>
                   <Typography
@@ -516,12 +519,12 @@ export default function PetDashboard() {
                 </Box>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0" }}
               >
                 <Box sx={{ flexGrow: 1 }}>
                   <Typography
@@ -648,9 +651,9 @@ export default function PetDashboard() {
                 </Box>
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+          
+        </Grid>
+      </Grid>
     </>
   );
 }

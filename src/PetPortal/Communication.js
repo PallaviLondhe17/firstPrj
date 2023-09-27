@@ -150,15 +150,12 @@ export default function Communication() {
   let navigate = useNavigate();
   return (
     <>
-      <Box>
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
 
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "content" }}>
-            <Accordion>
+        <Grid xs={9} sx={{p:2}}>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -275,7 +272,7 @@ export default function Communication() {
               </AccordionDetails>
             </Accordion>
 
-            <Accordion>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -370,7 +367,7 @@ export default function Communication() {
                 </TableContainer>
               </AccordionDetails>
             </Accordion>
-            <Accordion>
+            <Accordion sx={{mb:2}}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -468,9 +465,8 @@ export default function Communication() {
                 <Divider />
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+        </Grid>
+      </Grid>
     </>
   );
 }

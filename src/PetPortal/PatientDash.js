@@ -23,6 +23,7 @@ import {
   AlertTitle,
   Grid,
   Chip,
+  ListItem,
 } from "@mui/material";
 import {
   blue,
@@ -154,29 +155,27 @@ const th = createTheme({
     },
   },
 });
+
+
 export default function PatientDash() {
   let navigate = useNavigate();
   return (
     <>
-      <Box width="auto" height="auto">
         <Menubar />
-      </Box>
-      <Box display={"flex"}>
+        <Grid container>
         <MainPortal />
-
-        <div>
-          <Box sx={{ mx: 2, flexBasis: "content" }}>
-            <Accordion>
+        <Grid xs={9} sx={{p:2}}>
+            <Accordion sx={{mb:2}} defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
                 sx={{ backgroundColor: "#5c6bc0" }}
               >
-                 <Grid sx={{ width: 770 }} display="flex">
+                 <Grid sx={{ width: "auto" }} display="flex">
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "white", fontWeight: 400, textAlign: "left",width:210 }}
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:210 }}
                   >
                     Patient
                   </Typography>
@@ -185,7 +184,7 @@ export default function PatientDash() {
               </AccordionSummary>
               <AccordionDetails>
                   <TableContainer component={Paper}>
-                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <Table sx={{ minWidth: "auto" }} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell sx={{ fontWeight: "bold" }}>
@@ -250,8 +249,9 @@ export default function PatientDash() {
                   </TableContainer>
               </AccordionDetails>
             </Accordion>
-            <Box sx={{width:1050,mt:2}} display="flex" gap={2}>
-            <Accordion sx={{width:1050/2}}>
+            <Grid container>
+            <Grid xs={6} sx={{pr:2}}>
+             <Accordion sx={{mb:2}} defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -261,7 +261,7 @@ export default function PatientDash() {
                 <Grid sx={{ width:"auto" }} display="flex">
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "white", fontWeight: 400, textAlign: "left",width:"auto" }}
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:"auto" }}
                   >Medical Records</Typography>
                 </Grid>
               </AccordionSummary>
@@ -303,56 +303,38 @@ export default function PatientDash() {
                 </TableContainer>
               </AccordionDetails>
             </Accordion>
-            <Accordion sx={{width:1083/2}}>
+          </Grid>
+          <Grid xs={6}>
+            <Accordion sx={{mb:2}} defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1acontent"
                 id="panel1a-header"
                 sx={{ backgroundColor: "#5c6bc0" }}
               >
-                <Grid sx={{ width:"auto" }} display="flex">
+                <Grid sx={{ width:"auto",flexGrow:1 }} display="flex">
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "white", fontWeight: 400, textAlign: "left",width:"auto" }}
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:"100%" }}
                   >
                     Appointment
                   </Typography>
                 </Grid>
+                <Grid>
+                <AddCircleOutline sx={{ color: "white"}} />
+                </Grid>
               </AccordionSummary>
               <AccordionDetails>
-                <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Messages
-                        </TableCell>
-                        <TableCell align="right"></TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rowsone.map((row) => (
-                        <TableRow
-                          key={row.name}
-                          sx={{
-                            "&:last-child td, &:last-child th": { border: 0 },
-                          }}
-                        >
-                          <TableCell component="th" scope="row">
-                            {row.name}
-                          </TableCell>
-                          <TableCell align="right">{row.calories}</TableCell>
-                          <TableCell align="right">{row.fat}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                
+                  <Typography sx={{fontSize:14}}>No current Appointments </Typography>
+               
               </AccordionDetails>
             </Accordion>
-           </Box>
-           <Box sx={{width:1050,mt:2}} display="flex" gap={2}>
-            <Accordion sx={{width:1050/2}}>
+           </Grid>
+           </Grid>
+           <Grid container>
+            <Grid xs={4} sx={{pr:2}}>
+            <Accordion sx={{mb:2}} defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -362,49 +344,20 @@ export default function PatientDash() {
                 <Grid sx={{ width:"auto" }} display="flex">
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "white", fontWeight: 400, textAlign: "left",width:"auto" }}
-                  >Boarding</Typography>
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:"100%" }}
+                  >Reports/Logs</Typography>
                 </Grid>
               </AccordionSummary>
               <AccordionDetails>
-                <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: "auto" }} aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Name
-                        </TableCell>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Status
-                        </TableCell>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Follow
-                        </TableCell>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Provider
-                        </TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {rowtwo.map((row) => (
-                          <TableRow
-                            key={row.name}
-                            sx={{
-                              "&:last-child td, &:last-child th": { border: 0 },
-                            }}
-                          >
-                        <TableCell  scope="row">{row.name}</TableCell>
-                        <TableCell  scope="row">{row.status}</TableCell>
-                        <TableCell  scope="row">{row.follow}</TableCell>
-                        <TableCell  scope="row">{row.providerd}</TableCell>
-                        </TableRow>
-                        ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+                      <Box component={"div"}>
+                        <Typography sx={{fontSize:14,textAlign:"left"}}>1.  Vaccination History</Typography>
+                          
+                      </Box>
               </AccordionDetails>
             </Accordion>
-            <Accordion sx={{width:1083/2}}>
+            </Grid>
+            <Grid xs={4} sx={{pr:2}}>
+            <Accordion sx={{mb:2}}  defaultExpanded={true}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1acontent"
@@ -414,146 +367,120 @@ export default function PatientDash() {
                 <Grid sx={{ width:"auto" }} display="flex">
                   <Typography
                     variant="subtitle1"
-                    sx={{ color: "white", fontWeight: 400, textAlign: "left",width:"auto" }}
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:"auto" }}
                   >
-                    Reminders
+                    Recommended Service
                   </Typography>
                 </Grid>
               </AccordionSummary>
               <AccordionDetails>
-                <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell sx={{ fontWeight: "bold" }}>
-                          Messages
-                        </TableCell>
-                        <TableCell align="right"></TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {rowsone.map((row) => (
-                        <TableRow
-                          key={row.name}
-                          sx={{
-                            "&:last-child td, &:last-child th": { border: 0 },
-                          }}
-                        >
-                          <TableCell component="th" scope="row">
-                            {row.name}
-                          </TableCell>
-                          <TableCell align="right">{row.calories}</TableCell>
-                          <TableCell align="right">{row.fat}</TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </TableContainer>
+               <Typography sx={{fontSize:14}}>No recommended service Found</Typography>
               </AccordionDetails>
             </Accordion>
-           </Box>
-
-            <Accordion sx={{width:770}}>
+           </Grid>
+           <Grid xs={4}>
+           <Accordion sx={{mb:2}} defaultExpanded={true}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1acontent"
+                id="panel1a-header"
+                sx={{ backgroundColor: "#5c6bc0" }}
+              >
+                <Grid sx={{ width:"auto" }} display="flex">
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ color: "white", fontWeight: 700, textAlign: "left",width:"auto" }}
+                  >
+                    Client
+                  </Typography>
+                </Grid>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box component={"div"}>
+                  <Typography sx={{textAlign:"left",fontSize:14}}> 
+                  <p>
+                    Orio (1818)<br/>
+                    89uw9238r3r8937<br/>
+                    <Link>sai@gmail.com</Link>
+                    </p>
+                  </Typography>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+           </Grid>
+           </Grid>
+           <Grid container>
+            <Grid xs={7} sx={{pr:2}}>             
+            <Accordion sx={{mb:2}} defaultExpanded="true">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
-                sx={{ backgroundColor: "#5c6bc0", mt: 2 }}
+                sx={{ backgroundColor: "#5c6bc0" }}
               >
-                <Grid sx={{ width: 770 }} display="flex">
+                <Grid display="flex">
                   <Typography
                     variant="subtitle1"
                     sx={{
                       color: "white",
-                      fontWeight: 400,
+                      fontWeight: 700,
                       textAlign: "left",
-                      width: 180,
+                     // width: 180,
+                    }}
+                  >
+                    Boarding
+                  </Typography>
+                  
+                </Grid>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography sx={{fontSize:14}}>
+                  No Reservation
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            </Grid>
+            <Grid xs={5}>
+            <Accordion sx={{mb:2}} defaultExpanded="true">
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{ backgroundColor: "#5c6bc0"}}
+              >
+                  <Typography
+                    variant="subtitle1"
+                    sx={{
+                      color: "white",
+                      fontWeight: 700,
+                      textAlign: "left",
+                     // width: 180,
                     }}
                   >
                     Reminders
                   </Typography>
-                  <AddCircleOutline sx={{ color: "white", ml: 1 }} />
-
-                  <FormControl sx={{ ml: 5 }}>
-                    <Select
-                      size="small"
-                      labelId="select-species"
-                      sx={{ width: 250, bgcolor: "white" }}
-                      value="10"
-                      //variant="standard"
-                      //onChange={handleChange}
-                      placeholder="Animal Astro"
-                      // label="Species"
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "bold",
-                        textAlign: "left",
-                      }}
-                    >
-                      <MenuItem
-                        style={{ fontSize: "14px", fontWeight: "bold" }}
-                        value={true}
-                      >
-                        Canine(Dog)
-                      </MenuItem>
-                      <MenuItem
-                        style={{ fontSize: "14px", fontWeight: "bold" }}
-                        value={20}
-                      >
-                        Lizard
-                      </MenuItem>
-                      <MenuItem
-                        style={{ fontSize: "14px", fontWeight: "bold" }}
-                        value={30}
-                      >
-                        Tortoise
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                  <Grid md={6}>
-                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                      <DateRangePicker
-                      slots={{ field: SingleInputDateRangeField }}
-                      slotProps=
-                      {{ textField: 
-                        { InputProps: {sx:{fontSize:'14px'}},
-                        sx:{bgcolor:'Background',width:230,borderRadius:1,padding: 'initial',ml:3},
-                        size:"small" } }}
-                      />
-                    </LocalizationProvider>
-                  </Grid>
-                </Grid>
+                  
               </AccordionSummary>
               <AccordionDetails>
-                <Box
-                  //variant="outlined"
-                  border={3}
-                  borderColor={red[400]}
-                  width={80}
-                  height={80}
-                  borderRadius="50%"
-                  margin="auto"
-                  sx={{ mt: 1 }}
-                >
-                  <EmailIcon
-                    sx={{
-                      m: 2.5,
-                      width: 35,
-                      height: 35,
-                      color: red[400],
-                      //justifyItems:50,
-                    }}
-                  />
-                </Box>
-                <Typography sx={{ my: 1, fontWeight: "bold" }}>
-                  No Messages
-                </Typography>
-                <Divider />
+                <Accordion>
+                <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+               
+                sx={{ backgroundColor: "#0bc574"}}
+              >
+                <Typography sx={{color:"#fff",fontWeight:700}}> Due in next 45 Days</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                      Hello
+                </AccordionDetails>
+                </Accordion>
+               
               </AccordionDetails>
             </Accordion>
-          </Box>
-        </div>
-      </Box>
+            </Grid>
+          </Grid>
+        </Grid>
+        </Grid>
     </>
   );
 }

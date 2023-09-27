@@ -12,6 +12,7 @@ import { createTheme,ThemeProvider, styled  } from '@mui/material/styles';
 import listOfLocation from "./ListofJson/datafile.json"
 import Services from "./ServicesList";
 import InitialPage from "./InitialPage";
+import clinicImage from "./images/clinic_icon.png"
 
 
 const theme = createTheme({
@@ -54,7 +55,9 @@ export default function LocationList() {
         <Box component={"ul"} style={{ listStyle: "none" }} display={"inline-flex"} gap={2}>
             {listOfLocation.locations.map((locationlist,index)=>(
             <Paper component="li" sx={{width:350,height:"auto"}} elevation={3}>
-                <img height="200px" src="https://modernvet.vetport.com/assets/images/clinic_icon.png"
+                <img height="200px" 
+                //src="https://modernvet.vetport.com/assets/images/clinic_icon.png"
+                src={clinicImage}
                   alt="text" style={{objectFit:"contain",width:"100%",textAlign:"center"}}
                 />
                 {/*<image sx={{bgcolor:"#f8f9fa"}}>

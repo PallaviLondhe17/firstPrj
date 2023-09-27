@@ -44,23 +44,28 @@ export default function Menubar() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  return (
-    <>
-      <ThemeProvider theme={themes}>
+  return ( 
+      <Box sx={{ flexGrow: 1 }}>
+        <ThemeProvider theme={themes}>
         <AppBar position="static">
           <Toolbar>
             <Typography
               variant="h6"
               component="div"
-              sx={{ my: 1, fontWeight: 548 }}
+              Wrap
+              sx={{ fontWeight: 548,display: { xs: 'flex', sm: 'flex' },width:"fit-content"  }}
             >
               Animal Astro
             </Typography>
-            <Box sx={{ flexGrow: 1, display: "flex", }}>
-            <ChatIcon sx={{margin:"auto",paddingLeft:150}}/>
+            <Box sx={{ flexGrow: 1}}>
+            <Box sx={{ display: { xs: 'flex', md: 'flex' } }}>
+              <IconButton size="large"> 
+              <ChatIcon sx={{margin:"auto",paddingLeft:150,color:"#fff"}}/>
+              </IconButton>
+            
               <Tooltip title="Open settings">
               
-                <IconButton onClick={handleOpenUserMenu}>
+                <IconButton size="large" onClick={handleOpenUserMenu}>
                   <Avatar
                     src="/broken-image.jpg"
                     sx={{ bgcolor: green[700],margin:"auto" }}
@@ -69,14 +74,16 @@ export default function Menubar() {
               </Tooltip>
               <Typography
                 component="div"
-                sx={{ my: 1, fontWeight: 500, mt: 2 }}
+                sx={{fontWeight: 500, mt: 2,mr:5 }}
               >
                 Test
               </Typography>
             </Box>
+            </Box>
           </Toolbar>
         </AppBar>
       </ThemeProvider>
-    </>
+      </Box>
+  
   );
 }
