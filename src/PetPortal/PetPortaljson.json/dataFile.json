@@ -1,0 +1,156 @@
+{
+    "ReportLogs": [
+      {
+        "name": "Vaccination History",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      },
+      {
+        "name": "modern vet hospital",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      },
+      {
+        "name": "modern vet hospital",
+        "address": "<p>UMM SUQQEIM, AL WASL ROAD,, Dubai,Dubai, UAE - 50027<br/>Tel : 80082<br/>alwasl@modernvet.com</p>",
+        "opening_time": "12:00 AM-11:59 PM"
+      }
+    ],
+    "steps": [
+        {
+          "stepCount": 1,
+          "stepDesc": "Package"
+         
+        },
+        {
+          "stepCount":2,
+          "stepDesc": "Provider"
+        },
+        {
+          "stepCount": 3,
+          "stepDesc": "Date & Time"
+        },
+        {
+          "stepCount": 4,
+          "stepDesc": "Contact & Pet info"
+        }
+      ],
+      "serviceJ": [
+        {
+          "packageName": "CONSULTATION",
+          "package_details": [
+              "Veterinary Consultation"
+          ],
+          "price":"176.43"
+        },
+        {
+          "packageName":"ROYAL CANIN",
+          "package_details": [
+              "Royal Canin Maxi Puppy 15kg (3 To 15 Months)"
+          ],
+          "price":"500"
+        }
+      ],
+      "provider": [
+        {
+          "drName": "CONSULTATION"
+        },
+        {
+          "drName": "ROYAL CANIN"
+        },
+        {
+          "drName": "CONSULTATION"
+        },
+        {
+          "drName": "CONSULTATION"
+        }
+      ],
+      "bookingDetJs": [
+        {
+          "label": "Provider:",
+          "det":"Dr. Jao"
+        },
+        {
+          "label": "Clinic Name:",
+          "det":"Modern Vet Hospital"
+        },
+        { "label": "Appointment Date:",
+        "det":"16/9/2023"
+        },
+        {
+          "label": "Time Slot:",
+          "det":"08:20 - 08:40"
+        },
+        {
+          "label": "Patient:",
+          "det":"Orio"
+        },
+        {
+          "label":"Reason for Visit:",
+          "det":""
+        }
+      ],
+      "clientDetailsField": [
+        {
+          "fieldname": "first Name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Last name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Dubai",
+          "controlType":"select"
+        },
+        {
+          "fieldname": "City",
+          "controlType":"select"
+        },
+        {
+          "fieldname": "Postal Code",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Phone Number",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Email Address",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Patient Name",
+          "controlType":"input"
+        },
+        {
+          "fieldname": "Weight",
+          "controlType":"radio",
+           "options":[{
+              "labeln":"KG",
+              "labeln":"LB",
+              "labeln":"OZ",
+              "labeln":"G"
+           }]
+        },
+        
+        {
+          "fieldname": "Breed",
+          "controlType":"select",
+           "options":[{
+              "labeln":"canine(Dog)",
+              "labeln":"Feline(Cat)",
+              "labeln":"Bovine(Cow)",
+              "labeln":"Equine(Horse)",
+              "labeln":"Caprine(Goat)",
+              "labeln":"Ovine(Sheep)",
+              "labeln":"Mustalid(Ferrets)"
+
+           }]
+        },
+        {
+          "fieldname": "BirthDate",
+          "controlType":"Datepicker"
+        }
+      ]
+  }

@@ -131,7 +131,7 @@ export default function PetInfo(){
             If you are a client of Modern Vet input your details below:
      </Typography>
      </Box>
-     <Box sx={{justifyContent:"center",alignItems:"center",pl:65,mt:2}}>
+     <Box sx={{justifyContent:"center",alignItems:"center",pl:55,mt:2}}>
         <Paper
         component="form" elevation={0}
         sx={{bgcolor:"#fcf1ea",p: '3px 3px', display: 'flex', width: 550,borderRadius:10}}
@@ -159,7 +159,7 @@ export default function PetInfo(){
         </Paper>
      
       </Box>
-      <Box display="flex" sx={{ml:70,mt:2,gap:3}}>
+      <Box display="flex" sx={{ml:65,mt:2,gap:3}}>
         <Typography sx={{textTransform:"uppercase",fontSize:20,color:"#252354"}}>new client ?</Typography>
         <Button variant="contained" color="secondary" sx={{borderRadius:10,color:"#fff",width:250}} onClick={handleOpen}>register here</Button>
       </Box>
@@ -553,7 +553,7 @@ export default function PetInfo(){
         Select Your Pet
       </Typography>
       <Link to="/BookingDet">
-     <Typography sx={{textTransform:"uppercase",color:"#fff",bgcolor:"#252354",p:3,width:200,justifyItems:"center",ml:85,fontWeight:"bold",fontSize:20}}>orio</Typography>
+     <Typography sx={{textTransform:"uppercase",color:"#fff",bgcolor:"#252354",p:3,width:200,justifyItems:"center",ml:75,fontWeight:"bold",fontSize:20}}>orio</Typography>
      </Link>
     <Button variant="contained" color="primary"  sx={{borderRadius:10,fontWeight:700,m:2,pl:5,pr:5,fontSize:16}} onClick={handleOpenPetmodal}>add new pet</Button> 
     <Modal
